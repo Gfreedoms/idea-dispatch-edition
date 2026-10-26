@@ -564,14 +564,34 @@ footer a:hover{color:var(--red-dark);}
 .manifesto-quote::before{content:"\201C";display:block;font-style:normal;font-weight:700;font-size:3.4rem;line-height:.6;color:var(--red-dark);margin-bottom:10px;}
 
 /* ---------- About Us: charter (Values as numbered articles) ---------- */
-.charter-list{border-top:1px solid var(--rule);}
-.charter-item{
-  display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:baseline;
-  padding:28px 0;border-bottom:1px solid var(--rule);
+.charter-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
 }
-.charter-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:2.1rem;color:var(--red);line-height:1;}
-.charter-item h3{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.15rem;margin:0 0 8px;}
-.charter-item p{color:var(--ink-soft);margin:0;max-width:62ch;}
+@media (max-width:860px){.charter-grid{grid-template-columns:1fr;}}
+.charter-item{
+  position:relative;overflow:hidden;
+  background:var(--paper);
+  padding:34px 30px 30px;
+  border-top:3px double var(--red);
+  transition:background .25s ease;
+}
+@media (prefers-reduced-motion:no-preference){.charter-item{transition:background .25s ease, transform .25s ease;}}
+.charter-item:hover{background:var(--red-tint);}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.charter-item:hover{transform:translateY(-2px);}}
+.charter-ghost{
+  position:absolute;top:-.12em;right:16px;
+  font-family:'Roboto Slab',serif;font-weight:700;line-height:1;
+  font-size:clamp(4.5rem,8vw,6.5rem);
+  color:rgba(186,32,37,.07);
+  pointer-events:none;user-select:none;z-index:0;
+}
+.charter-item .kicker,
+.charter-item h3,
+.charter-item p{position:relative;z-index:1;}
+.charter-item .kicker{margin-bottom:14px;}
+.charter-item h3{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.18rem;margin:0 0 10px;}
+.charter-item p{color:var(--ink-soft);margin:0;max-width:42ch;}
 
 /* ---------- About Us: magazine pull-quote (Why We Exist) ---------- */
 .pullquote-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:44px;align-items:start;}
@@ -883,26 +903,34 @@ footer a:hover{color:var(--red-dark);}
   <section class="section" id="about-values">
     <div class="wrap">
       <div class="section-head">
-        <div><span class="label">Our Values</span><h2 class="section-title">The Charter</h2></div>
+        <div><div class="kicker"><span class="dot"></span><span class="label">Our Values</span></div><h2 class="section-title">The Charter</h2></div>
         <p class="section-note">Four articles that govern how IDEA works.</p>
       </div>
-      <div class="charter-list">
-        <div class="charter-item">
-          <span class="charter-num">I</span>
-          <div><h3>Social Justice &amp; Equity</h3><p>Promoting dignity and justice, particularly for marginalised and young populations.</p></div>
-        </div>
-        <div class="charter-item">
-          <span class="charter-num">II</span>
-          <div><h3>Gender &amp; Diversity</h3><p>Ensuring our work reflects respect for gender and diversity.</p></div>
-        </div>
-        <div class="charter-item">
-          <span class="charter-num">III</span>
-          <div><h3>Accountability</h3><p>Maintaining ethical behaviour and responsibility toward those we serve.</p></div>
-        </div>
-        <div class="charter-item">
-          <span class="charter-num">IV</span>
-          <div><h3>Self&#8209;Sufficiency</h3><p>Pursuing sustainable, locally&#8209;rooted development outcomes.</p></div>
-        </div>
+      <div class="charter-grid">
+        <article class="charter-item">
+          <span class="charter-ghost" aria-hidden="true">I</span>
+          <div class="kicker"><span class="dot"></span><span class="label">Article I of IV</span></div>
+          <h3>Social Justice &amp; Equity</h3>
+          <p>Promoting dignity and justice, particularly for marginalised and young populations.</p>
+        </article>
+        <article class="charter-item">
+          <span class="charter-ghost" aria-hidden="true">II</span>
+          <div class="kicker"><span class="dot"></span><span class="label">Article II of IV</span></div>
+          <h3>Gender &amp; Diversity</h3>
+          <p>Ensuring our work reflects respect for gender and diversity.</p>
+        </article>
+        <article class="charter-item">
+          <span class="charter-ghost" aria-hidden="true">III</span>
+          <div class="kicker"><span class="dot"></span><span class="label">Article III of IV</span></div>
+          <h3>Accountability</h3>
+          <p>Maintaining ethical behaviour and responsibility toward those we serve.</p>
+        </article>
+        <article class="charter-item">
+          <span class="charter-ghost" aria-hidden="true">IV</span>
+          <div class="kicker"><span class="dot"></span><span class="label">Article IV of IV</span></div>
+          <h3>Self&#8209;Sufficiency</h3>
+          <p>Pursuing sustainable, locally&#8209;rooted development outcomes.</p>
+        </article>
       </div>
     </div>
   </section>
