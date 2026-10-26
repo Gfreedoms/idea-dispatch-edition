@@ -514,13 +514,24 @@ footer a:hover{color:var(--red-dark);}
 
 /* ---------- About Us: dossier opening ---------- */
 #about-dossier{
+  position:relative;
   padding:60px 0 56px;
   background:linear-gradient(170deg, var(--red) 0%, var(--red-dark) 78%, #6E1215 100%);
   border-top-color:transparent;
 }
-#about-dossier, #about-dossier h1, #about-dossier p{color:#fff;}
-#about-dossier .kicker .label{color:#FFD9DA;}
-#about-dossier .kicker .dot{background:#fff;}
+#about-dossier::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:170px;
+  background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+#about-dossier .wrap{position:relative;z-index:1;}
+#about-dossier, #about-dossier p{color:#fff;}
+#about-dossier h1{color:#1A0607;}
+#about-dossier .kicker .label{color:#8C181C;}
+#about-dossier .kicker .dot{background:#8C181C;}
 #about-dossier .deck{color:rgba(255,255,255,.94);}
 #about-dossier p.body-copy{color:rgba(255,255,255,.82);}
 .dossier-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;}
