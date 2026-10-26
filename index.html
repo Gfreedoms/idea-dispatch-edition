@@ -513,41 +513,14 @@ footer a:hover{color:var(--red-dark);}
 }
 
 /* ---------- About Us: dossier opening ---------- */
-#about-dossier{
-  position:relative;
-  padding:60px 0 56px;
-  background:var(--red);
-  border-top-color:transparent;
-}
-#about-dossier::before{
-  content:"";
-  position:absolute;
-  inset:auto 0 0 0;
-  height:190px;
-  background:linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%);
-  pointer-events:none;
-}
-#about-dossier .wrap{position:relative;z-index:1;}
-#about-dossier, #about-dossier p{color:#fff;}
-#about-dossier h1{color:#fff;}
-#about-dossier .kicker .label{color:#FFD9DA;}
-#about-dossier .kicker .dot{background:#fff;}
-#about-dossier .deck{color:rgba(255,255,255,.94);}
-#about-dossier p.body-copy{color:rgba(255,255,255,.82);}
-#about-dossier .dossier-strip{border-top-color:rgba(140,24,28,.25);}
-#about-dossier .dossier-field span{color:rgba(140,24,28,.65);}
-#about-dossier .dossier-field strong{color:#1A0607;}
-@media (max-width:860px){
-  #about-dossier .dossier-strip{border-top-color:rgba(255,255,255,.22);}
-  #about-dossier .dossier-field span{color:rgba(255,255,255,.6);}
-  #about-dossier .dossier-field strong{color:#fff;}
-}
+#about-dossier{padding:60px 0 56px;}
 .dossier-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;}
 @media (max-width:860px){.dossier-grid{grid-template-columns:1fr;gap:40px;}}
-.dossier-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22);}
+.dossier-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid var(--rule);}
 .dossier-field{display:flex;flex-direction:column;gap:5px;}
-.dossier-field span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.dossier-field span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
 .dossier-field strong{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;}
+.body-copy{color:var(--ink-soft);}
 .seal-wrap{display:flex;justify-content:center;}
 .seal-wrap svg{width:230px;height:230px;max-width:100%;color:var(--red);}
 
