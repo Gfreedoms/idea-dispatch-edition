@@ -514,15 +514,21 @@ footer a:hover{color:var(--red-dark);}
 
 /* ---------- About Us: dossier opening ---------- */
 #about-dossier{padding:60px 0 56px;}
-.dossier-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;}
-@media (max-width:860px){.dossier-grid{grid-template-columns:1fr;gap:40px;}}
+.dossier-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;}
+@media (max-width:860px){.dossier-grid{grid-template-columns:1fr;gap:32px;}}
+.dossier-photo figure{position:relative;margin:0;border:1px solid var(--rule);overflow:hidden;}
+.dossier-photo img{display:block;width:100%;height:auto;filter:grayscale(.06) contrast(1.03);}
+.dossier-seal-badge{
+  position:absolute;right:-16px;bottom:-16px;width:86px;height:86px;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.28));
+}
+.dossier-seal-badge svg{width:100%;height:100%;color:var(--red);}
+.photo-cutline{font-size:11.5px;color:var(--ink-soft);letter-spacing:.01em;margin:12px 0 0;}
 .dossier-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid var(--rule);}
 .dossier-field{display:flex;flex-direction:column;gap:5px;}
 .dossier-field span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
 .dossier-field strong{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;}
 .body-copy{color:var(--ink-soft);}
-.seal-wrap{display:flex;justify-content:center;}
-.seal-wrap svg{width:230px;height:230px;max-width:100%;color:var(--red);}
 
 /* ---------- About Us: manifesto (Vision / Mission pull-quotes) ---------- */
 .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
@@ -842,6 +848,26 @@ footer a:hover{color:var(--red-dark);}
   <!-- 1. Dossier opening — a case-file header, not a repeat of the hero -->
   <section class="section" id="about-dossier" style="border-top:none;">
     <div class="wrap dossier-grid">
+      <div class="dossier-photo">
+        <figure>
+          <img src="about-who-we-are.jpg" alt="IDEA staff and partners engaging the public at a civic outreach event in Kampala" loading="lazy">
+          <span class="dossier-seal-badge" aria-hidden="true">
+            <svg viewBox="0 0 240 240">
+              <defs><path id="idaSealTopSmall" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+              <circle cx="120" cy="120" r="118" fill="#fff"/>
+              <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+              <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+                <textPath href="#idaSealTopSmall" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+              </text>
+              <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+              <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+              <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+            </svg>
+          </span>
+        </figure>
+        <p class="photo-cutline">On the ground in Kampala &mdash; IDEA engaging the public at a civic outreach event.</p>
+      </div>
       <div>
         <div class="kicker"><span class="dot"></span><span class="label">About IDEA &middot; Case File</span></div>
         <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Who We Are</h1>
@@ -852,20 +878,6 @@ footer a:hover{color:var(--red-dark);}
           <div class="dossier-field"><span>Classification</span><strong>Hub &amp; Policy Think Tank</strong></div>
           <div class="dossier-field"><span>Serves</span><strong>12M Young Ugandans</strong></div>
         </div>
-      </div>
-      <div class="seal-wrap">
-        <svg viewBox="0 0 240 240" aria-hidden="true">
-          <defs><path id="idaSealTop" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
-          <circle cx="120" cy="120" r="118" fill="#fff"/>
-          <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
-          <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
-            <textPath href="#idaSealTop" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
-          </text>
-          <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
-          <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
-          <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
-        </svg>
       </div>
     </div>
   </section>
