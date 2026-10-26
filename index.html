@@ -511,6 +511,62 @@ footer a:hover{color:var(--red-dark);}
   .float-social a{width:38px;height:38px;}
   .float-social svg{width:16px;height:16px;}
 }
+
+/* ---------- About Us: dossier opening ---------- */
+#about-dossier{
+  padding:60px 0 56px;
+  background:linear-gradient(170deg, var(--red) 0%, var(--red-dark) 78%, #6E1215 100%);
+  border-top-color:transparent;
+}
+#about-dossier, #about-dossier h1, #about-dossier p{color:#fff;}
+#about-dossier .kicker .label{color:#FFD9DA;}
+#about-dossier .kicker .dot{background:#fff;}
+#about-dossier .deck{color:rgba(255,255,255,.94);}
+#about-dossier p.body-copy{color:rgba(255,255,255,.82);}
+.dossier-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;}
+@media (max-width:860px){.dossier-grid{grid-template-columns:1fr;gap:40px;}}
+.dossier-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22);}
+.dossier-field{display:flex;flex-direction:column;gap:5px;}
+.dossier-field span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.dossier-field strong{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;}
+.seal-wrap{display:flex;justify-content:center;}
+.seal-wrap svg{width:230px;height:230px;max-width:100%;color:var(--red);}
+
+/* ---------- About Us: manifesto (Vision / Mission pull-quotes) ---------- */
+.manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media (max-width:860px){.manifesto-grid{grid-template-columns:1fr;gap:40px;}}
+.manifesto-grid > div:first-child{padding-right:50px;border-right:1px solid rgba(255,255,255,.18);}
+.manifesto-grid > div:last-child{padding-left:50px;}
+@media (max-width:860px){
+  .manifesto-grid > div:first-child{padding-right:0;border-right:none;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.18);}
+  .manifesto-grid > div:last-child{padding-left:0;}
+}
+.manifesto-quote{font-family:'Roboto Slab',serif;font-style:italic;font-weight:500;font-size:clamp(1.25rem,2.1vw,1.6rem);line-height:1.48;margin:16px 0 0;}
+.manifesto-quote::before{content:"\201C";display:block;font-style:normal;font-weight:700;font-size:3.4rem;line-height:.6;color:var(--red-dark);margin-bottom:10px;}
+
+/* ---------- About Us: charter (Values as numbered articles) ---------- */
+.charter-list{border-top:1px solid var(--rule);}
+.charter-item{
+  display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:baseline;
+  padding:28px 0;border-bottom:1px solid var(--rule);
+}
+.charter-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:2.1rem;color:var(--red);line-height:1;}
+.charter-item h3{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.15rem;margin:0 0 8px;}
+.charter-item p{color:var(--ink-soft);margin:0;max-width:62ch;}
+
+/* ---------- About Us: magazine pull-quote (Why We Exist) ---------- */
+.pullquote-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:44px;align-items:start;}
+@media (max-width:860px){.pullquote-grid{grid-template-columns:1fr;gap:20px;}}
+.pullquote-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:clamp(4rem,9vw,6.5rem);color:var(--red);line-height:.88;}
+.pullquote-cap{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;display:block;}
+.pullquote-body p{max-width:64ch;}
+.pullquote-body p + p{margin-top:14px;}
+
+/* ---------- About Us: sign-off ---------- */
+.sign-off{
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  margin:0 0 18px;
+}
 </style>
 
 <div id="loader" aria-hidden="true">
@@ -759,83 +815,102 @@ footer a:hover{color:var(--red-dark);}
 
 <div class="page" id="page-about-us" hidden>
 
-  <section class="section" style="border-top:none;padding-bottom:48px;">
-    <div class="wrap">
-      <div class="kicker"><span class="dot"></span><span class="label">About IDEA</span></div>
-      <h1 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;">Who We Are</h1>
-      <p class="deck">Innovations for Democratic Engagement and Action is a non&#8209;secular, non&#8209;aligned democracy ideas incubation hub and policy think tank, dedicated to shaping Uganda's democratic landscape.</p>
-      <p style="max-width:62ch;color:var(--ink-soft);">Established primarily to support young people in re&#8209;channeling their energy, utilizing their demographic potential to pursue a progressive democratic future, IDEA serves as a platform for transformative ideas aimed at enhancing good governance, citizen participation, and accountability.</p>
+  <!-- 1. Dossier opening — a case-file header, not a repeat of the hero -->
+  <section class="section" id="about-dossier" style="border-top:none;">
+    <div class="wrap dossier-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span><span class="label">About IDEA &middot; Case File</span></div>
+        <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Who We Are</h1>
+        <p class="deck">Innovations for Democratic Engagement and Action is a non&#8209;secular, non&#8209;aligned democracy ideas incubation hub and policy think tank, dedicated to shaping Uganda's democratic landscape.</p>
+        <p class="body-copy" style="max-width:58ch;">Established primarily to support young people in re&#8209;channeling their energy, utilizing their demographic potential to pursue a progressive democratic future, IDEA serves as a platform for transformative ideas aimed at enhancing good governance, citizen participation, and accountability.</p>
+        <div class="dossier-strip">
+          <div class="dossier-field"><span>Status</span><strong>Non&#8209;secular, Non&#8209;aligned</strong></div>
+          <div class="dossier-field"><span>Classification</span><strong>Hub &amp; Policy Think Tank</strong></div>
+          <div class="dossier-field"><span>Serves</span><strong>12M Young Ugandans</strong></div>
+        </div>
+      </div>
+      <div class="seal-wrap">
+        <svg viewBox="0 0 240 240" aria-hidden="true">
+          <defs><path id="idaSealTop" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+          <circle cx="120" cy="120" r="118" fill="#fff"/>
+          <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+          <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+            <textPath href="#idaSealTop" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+          </text>
+          <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+          <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+          <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+        </svg>
+      </div>
     </div>
   </section>
 
+  <!-- 2. Manifesto — Vision &amp; Mission as pull-quotes, not feature cards -->
   <section class="section mission">
-    <div class="wrap mission-grid">
+    <div class="wrap manifesto-grid">
       <div>
         <span class="label">Vision</span>
-        <h3 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1.4rem;margin:14px 0 14px;">IDEA&rsquo;s Vision</h3>
-        <p>Our vision is a Ugandan body politic that is led by progressive young leaders, thinkers and innovators who profess a shared value system and are interested in a common development agenda.</p>
+        <p class="manifesto-quote">Our vision is a Ugandan body politic that is led by progressive young leaders, thinkers and innovators who profess a shared value system and are interested in a common development agenda.</p>
       </div>
       <div>
         <span class="label">Mission</span>
-        <h3 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:1.4rem;margin:14px 0 14px;">IDEA&rsquo;s Mission</h3>
-        <p>Our mission is to provide space and support for the fine&#8209;tuning, incubation and actualization of democracy and development concepts.</p>
+        <p class="manifesto-quote">Our mission is to provide space and support for the fine&#8209;tuning, incubation and actualization of democracy and development concepts.</p>
       </div>
     </div>
   </section>
 
+  <!-- 3. Charter — Values as numbered articles, not the Docket card grid -->
   <section class="section" id="about-values">
     <div class="wrap">
       <div class="section-head">
-        <div><span class="label">Our Values</span><h2 class="section-title">What we stand for</h2></div>
-        <p class="section-note">Four principles that shape every programme IDEA runs.</p>
+        <div><span class="label">Our Values</span><h2 class="section-title">The Charter</h2></div>
+        <p class="section-note">Four articles that govern how IDEA works.</p>
       </div>
-    </div>
-    <div class="wrap">
-      <div class="docket">
-        <div class="docket-item">
-          <span class="ghost-num">01</span>
-          <span class="case">Value 01</span>
-          <h3>Social Justice &amp; Equity</h3>
-          <p>Promoting dignity and justice, particularly for marginalised and young populations.</p>
+      <div class="charter-list">
+        <div class="charter-item">
+          <span class="charter-num">I</span>
+          <div><h3>Social Justice &amp; Equity</h3><p>Promoting dignity and justice, particularly for marginalised and young populations.</p></div>
         </div>
-        <div class="docket-item">
-          <span class="ghost-num">02</span>
-          <span class="case">Value 02</span>
-          <h3>Gender &amp; Diversity</h3>
-          <p>Ensuring our work reflects respect for gender and diversity.</p>
+        <div class="charter-item">
+          <span class="charter-num">II</span>
+          <div><h3>Gender &amp; Diversity</h3><p>Ensuring our work reflects respect for gender and diversity.</p></div>
         </div>
-        <div class="docket-item">
-          <span class="ghost-num">03</span>
-          <span class="case">Value 03</span>
-          <h3>Accountability</h3>
-          <p>Maintaining ethical behaviour and responsibility toward those we serve.</p>
+        <div class="charter-item">
+          <span class="charter-num">III</span>
+          <div><h3>Accountability</h3><p>Maintaining ethical behaviour and responsibility toward those we serve.</p></div>
         </div>
-        <div class="docket-item">
-          <span class="ghost-num">04</span>
-          <span class="case">Value 04</span>
-          <h3>Self&#8209;Sufficiency</h3>
-          <p>Pursuing sustainable, locally&#8209;rooted development outcomes.</p>
+        <div class="charter-item">
+          <span class="charter-num">IV</span>
+          <div><h3>Self&#8209;Sufficiency</h3><p>Pursuing sustainable, locally&#8209;rooted development outcomes.</p></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 4. Why We Exist — a magazine pull-quote spread, not the small inline statline -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div><span class="label">Why We Exist</span><h2 class="section-title">The gap we close</h2></div>
       </div>
-      <p class="deck" style="max-width:70ch;">Uganda&rsquo;s population boom has gifted the country with twelve million young adults, many of whose minds are bubbling and restless with ideas and aspirations for socioeconomic progress and political revolution.</p>
-      <p style="max-width:70ch;color:var(--ink-soft);">The prevailing political order and architecture of the economy are both too weak, malformed, and externalized to constructively channel that energy and those dreams into building blocks for a more secure and predictable future. IDEA aspires to provide space and support for the fine&#8209;tuning, incubation, and actualization of pro&#8209;democracy and development concepts.</p>
-      <div class="statline">
-        <span class="num">12M</span>
-        <span class="statlabel">young Ugandans whose energy and ideas IDEA exists to channel.</span>
+      <div class="pullquote-grid">
+        <div>
+          <div class="pullquote-num">12M</div>
+          <span class="pullquote-cap">Young Ugandans</span>
+        </div>
+        <div class="pullquote-body">
+          <p>Uganda&rsquo;s population boom has gifted the country with twelve million young adults, many of whose minds are bubbling and restless with ideas and aspirations for socioeconomic progress and political revolution.</p>
+          <p>The prevailing political order and architecture of the economy are both too weak, malformed, and externalized to constructively channel that energy and those dreams into building blocks for a more secure and predictable future. IDEA aspires to provide space and support for the fine&#8209;tuning, incubation, and actualization of pro&#8209;democracy and development concepts.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- 5. Sign-off — echoes the masthead's own press-wire voice -->
   <section class="section" style="text-align:center;">
     <div class="wrap">
+      <p class="sign-off">Filed in Kampala, Uganda</p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn-solid" href="#what-we-do">What We Do &rarr;</a>
         <a class="btn btn-line" href="#contact-us">Contact Us</a>
