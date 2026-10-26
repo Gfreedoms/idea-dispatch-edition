@@ -604,6 +604,40 @@ footer a:hover{color:var(--red-dark);}
 .gap-marker span{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-dark);white-space:nowrap;}
 .gap-marker::after{content:"";flex:1;height:1px;background:var(--rule);}
 
+/* ---------- What We Do + Case pages: shared system ---------- */
+.fact-grid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:2px solid var(--red);margin-top:28px;}
+.fact-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:640px){.fact-grid.cols-4{grid-template-columns:repeat(2,1fr);}}
+.fact-grid .dossier-field{background:var(--paper);padding:14px 16px;}
+
+.case-grid{display:grid;gap:48px;align-items:center;}
+.case-grid.case-grid--photo-first{grid-template-columns:1fr 1.05fr;}
+.case-grid.case-grid--text-first{grid-template-columns:1.05fr 1fr;}
+@media (max-width:860px){
+  .case-grid.case-grid--photo-first,
+  .case-grid.case-grid--text-first{grid-template-columns:1fr;gap:32px;}
+}
+.case-copy .tag-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.case-copy .tag{background:var(--red);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;}
+.case-copy .case{font-size:11px;font-weight:700;color:var(--red-dark);letter-spacing:.08em;text-transform:uppercase;}
+.tag-dark{background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;display:inline-block;}
+
+.process-list{border-top:1px solid var(--rule);margin-top:18px;}
+.process-step{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--rule);}
+.process-step .num{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.7rem;color:var(--red);line-height:1;}
+.process-step p{margin:0;color:var(--ink-soft);max-width:62ch;}
+
+.idea-ledger{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:18px;}
+@media (max-width:640px){.idea-ledger{grid-template-columns:1fr;}}
+.idea-ledger-item{background:var(--paper);padding:18px 20px;display:flex;gap:12px;align-items:flex-start;}
+.idea-ledger-item::before{content:"";width:6px;height:6px;margin-top:8px;flex:none;background:var(--red);}
+.idea-ledger-item span{color:var(--ink);font-size:.95rem;line-height:1.5;}
+
+.study-list{border-top:1px solid var(--rule);margin-top:18px;}
+.study-item{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--rule);}
+.study-item .num{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red-dark);font-size:1rem;}
+.study-item p{margin:0;color:var(--ink-soft);max-width:68ch;}
+
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
@@ -983,43 +1017,310 @@ footer a:hover{color:var(--red-dark);}
 </div>
 
 <div class="page" id="page-what-we-do" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">What We Do</span>
-    <h1>Democracy innovations, deep thinking, data and research</h1>
-    <p>IDEA's work spans four programmes &mdash; civic engagement technology, governance research, policy analysis and knowledge generation &mdash; all aimed at Uganda's democratic and development challenges.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="wwd-overview" style="border-top:none;">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="label">The Docket &middot; Full Index</span></div>
+      <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">What We Do</h1>
+      <p class="deck" style="max-width:62ch;">Consistent with its mission and vision, IDEA&rsquo;s identity is characterized by four key elements: democracy innovations, deep thinking, big data generation and storage, and cutting&#8209;edge research. Going by what we do, IDEA can thus be defined as &mdash;</p>
+      <div class="fact-grid cols-4">
+        <div class="dossier-field"><span>Element 01</span><strong>Democracy Innovations</strong></div>
+        <div class="dossier-field"><span>Element 02</span><strong>Deep Thinking</strong></div>
+        <div class="dossier-field"><span>Element 03</span><strong>Big Data</strong></div>
+        <div class="dossier-field"><span>Element 04</span><strong>Cutting&#8209;Edge Research</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:none;">
+    <div class="wrap">
+      <div class="docket-feature">
+        <span class="ghost-num">01</span>
+        <div class="tag-row">
+          <span class="tag">Flagship Programme</span>
+          <span class="case">Case 01 &middot; Innovations Lab</span>
+        </div>
+        <h3>A democracy ideas incubation hub</h3>
+        <p>Developing new approaches to civic and democratic engagement &mdash; where a young person&rsquo;s idea becomes a working prototype.</p>
+        <a class="btn btn-line" href="#innovations-lab">Enter the Lab &rarr;</a>
+      </div>
+      <div class="docket">
+        <div class="docket-item">
+          <span class="ghost-num">02</span>
+          <span class="case">Case 02 &middot; Governance &amp; Civil Society</span>
+          <h3>Strengthening the civic front line</h3>
+          <p>Human rights, accountability, democracy and conflict management.</p>
+          <a href="#governance-civil-society">Read the Brief</a>
+        </div>
+        <div class="docket-item">
+          <span class="ghost-num">03</span>
+          <span class="case">Case 03 &middot; IDEA Think Tank</span>
+          <h3>A policy think tank</h3>
+          <p>Deep, independent analysis that reaches the desks that decide policy.</p>
+          <a href="#think-tank">View Analysis</a>
+        </div>
+        <div class="docket-item">
+          <span class="ghost-num">04</span>
+          <span class="case">Case 04 &middot; Research &amp; Consultancy</span>
+          <h3>A research &amp; knowledge&#8209;generation powerhouse</h3>
+          <p>Evidence&#8209;based insight, built on data gathered from the ground up.</p>
+          <a href="#research-consultancy">See Research</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="label" style="display:block;margin-bottom:12px;">Field Note</span>
+      <p class="body-copy" style="max-width:68ch;">At the core of IDEA&rsquo;s work is the development of civic engagement innovations based on digital technology and other non&#8209;conventional mechanisms to address Uganda&rsquo;s salient policy and citizenship challenges. IDEA spearheads big data initiatives, positioning itself as a comprehensive repository for datasets related to governance trends and the development trajectory. Through cutting&#8209;edge research and deep thinking coalescing, IDEA generates knowledge that informs public policy and discourse while providing civic actors with credible evidence and tools for democratic engagement.</p>
+    </div>
+  </section>
+
 </div>
 
 <div class="page" id="page-innovations-lab" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">What We Do &middot; Innovations Lab</span>
-    <h1>A democracy ideas incubation hub</h1>
-    <p>Developing new approaches to civic and democratic engagement &mdash; where a young person's idea becomes a working prototype.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="lab-intro" style="border-top:none;">
+    <div class="wrap case-grid case-grid--photo-first">
+      <div class="dossier-photo">
+        <figure>
+          <img src="innovations-lab.jpg" alt="Two young innovators collaborating on a laptop" loading="lazy">
+          <span class="dossier-seal-badge" aria-hidden="true">
+            <svg viewBox="0 0 240 240">
+              <defs><path id="idaSealTopLab" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+              <circle cx="120" cy="120" r="118" fill="#fff"/>
+              <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+              <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+                <textPath href="#idaSealTopLab" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+              </text>
+              <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+              <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+              <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+            </svg>
+          </span>
+        </figure>
+      </div>
+      <div class="case-copy">
+        <div class="tag-row">
+          <span class="tag">Flagship Programme</span>
+          <span class="case">Case 01 &middot; What We Do</span>
+        </div>
+        <div class="kicker" style="margin-top:14px;"><span class="dot"></span><span class="label">Innovations Lab</span></div>
+        <h1 style="font-weight:700;font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.01em;margin:14px 0 16px;text-wrap:balance;font-family:'Roboto Slab',serif;">An interactive and broadminded centre to develop new ideas</h1>
+        <p class="deck">IDEA&rsquo;s innovations lab is anchored on developing, facilitating and promoting governance and social entrepreneurial innovations by development practitioners, democracy activists and young people.</p>
+        <p class="body-copy" style="max-width:58ch;">The Lab aims at encouraging actors to come up with ground&#8209;breaking approaches for participation in the governance and development processes, with a specific bias towards the uptake of new technology in participation. Its core objective is to channel young people&rsquo;s intellect, thoughts and energy into actionable projects for social, economic and democratic impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="body-copy" style="max-width:68ch;">IDEA lab is thus a seedbed for creative thinking, learning and experimentation in a hands&#8209;on, learn&#8209;while&#8209;doing model. Through this lab, young people and other actors are able to test and devise new ideas, products, services and public advocacy campaigns.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">The Method</span></div><h2 class="section-title">How the Lab Works</h2></div>
+        <p class="section-note">Seven steps from a raw idea to a working prototype.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-step"><span class="num">01</span><p>Identification of challenges in the status quo, and/or emerging opportunities &mdash; encouraging young people and activists to come up with innovations in response.</p></div>
+        <div class="process-step"><span class="num">02</span><p>Provision of an anchor that can listen to the ideas in respect to the identified challenge, supporting the processing of ideas and putting them on paper in form of concepts.</p></div>
+        <div class="process-step"><span class="num">03</span><p>Search for new technologies which could help, and identification of the leading experts and professionals to provide training and host workshops that add value to the ideas.</p></div>
+        <div class="process-step"><span class="num">04</span><p>Organising a collaborative, agile framework for innovation between professionals and activists, where the players take the new tool, idea or technology and explore how it can be used in their field.</p></div>
+        <div class="process-step"><span class="num">05</span><p>Advising on possible partners or like&#8209;minded actors who can help take the ideas forward, as well as potential end users of the innovation.</p></div>
+        <div class="process-step"><span class="num">06</span><p>Where need be, working with the innovators to execute their ideas directly.</p></div>
+        <div class="process-step"><span class="num">07</span><p>Adding a social enterprise aspect to every idea as a way of financing and sustainability, with follow&#8209;up support to maintain and upgrade the technologies in use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">Case 01 &middot; Pipeline</span></div><h2 class="section-title">Ideas in Incubation</h2></div>
+        <p class="section-note">Eight concepts currently moving through the Lab.</p>
+      </div>
+      <div class="idea-ledger">
+        <div class="idea-ledger-item"><span>A digital app for reporting Human Rights violations and dissemination of the HRBA principles</span></div>
+        <div class="idea-ledger-item"><span>A Sexual Harassment Reporting App for institutions of higher learning &mdash; the Speak Up Digital App (SUDA)</span></div>
+        <div class="idea-ledger-item"><span>A Social Justice Centers Initiative &mdash; safe spaces for information on victims, survivors and perpetrators of torture (the DDD Initiative)</span></div>
+        <div class="idea-ledger-item"><span>A Governance and civic space tracker across four areas: Human Rights, Accountability, Democracy, Conflict</span></div>
+        <div class="idea-ledger-item"><span>A Civil Society Events Update Report and Resource Centre</span></div>
+        <div class="idea-ledger-item"><span>A guide for peaceful participation in civic struggles</span></div>
+        <div class="idea-ledger-item"><span>A University Guild Leaders&rsquo; Thought Leadership Platform and Score Card</span></div>
+        <div class="idea-ledger-item"><span>A statistics resource centre for governance and development</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="wrap">
+      <p class="sign-off">Filed under Innovations Lab</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="#governance-civil-society">Next Case: Governance &amp; Civil Society &rarr;</a>
+        <a class="btn btn-line" href="#what-we-do">&larr; All Cases</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div class="page" id="page-governance-civil-society" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">What We Do &middot; Governance &amp; Civil Society Strengthening</span>
-    <h1>Strengthening the civic front line</h1>
-    <p>Human rights, accountability, democracy and conflict management &mdash; standing with the organisers and institutions that hold power to account.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="gov-intro" style="border-top:none;">
+    <div class="wrap case-grid case-grid--text-first">
+      <div class="case-copy">
+        <div class="tag-row">
+          <span class="tag">Civic Strengthening</span>
+          <span class="case">Case 02 &middot; What We Do</span>
+        </div>
+        <div class="kicker" style="margin-top:14px;"><span class="dot"></span><span class="label">Governance and Civil Society Strengthening</span></div>
+        <h1 style="font-weight:700;font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.01em;margin:14px 0 16px;text-wrap:balance;font-family:'Roboto Slab',serif;">Strengthening the civic front line</h1>
+        <p class="deck">Human rights, Accountability, Democracy and conflict management.</p>
+        <p class="body-copy" style="max-width:56ch;">In addition to supporting young people&rsquo;s pro&#8209;democracy ideas incubation, IDEA plays the role of connecting civil society with different citizen struggles, especially of young people, to effect lasting change.</p>
+        <div style="margin-top:26px;">
+          <span class="label" style="display:block;margin-bottom:10px;">Civic Fronts We Connect</span>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <span class="tag-dark">Labour Movement</span>
+            <span class="tag-dark">Youth Movement</span>
+            <span class="tag-dark">Business Community</span>
+            <span class="tag-dark">Performing Artistes</span>
+          </div>
+        </div>
+      </div>
+      <div class="dossier-photo">
+        <figure>
+          <img src="governance-civil-society.jpg" alt="A community dialogue circle meeting outdoors in Uganda" loading="lazy">
+          <span class="dossier-seal-badge" aria-hidden="true">
+            <svg viewBox="0 0 240 240">
+              <defs><path id="idaSealTopGov" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+              <circle cx="120" cy="120" r="118" fill="#fff"/>
+              <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+              <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+                <textPath href="#idaSealTopGov" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+              </text>
+              <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+              <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+              <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+            </svg>
+          </span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="label" style="display:block;margin-bottom:12px;">Where IDEA Stands</span>
+      <div class="fact-grid cols-4">
+        <div class="dossier-field"><span>Focus 01</span><strong>Human Rights</strong></div>
+        <div class="dossier-field"><span>Focus 02</span><strong>Accountability</strong></div>
+        <div class="dossier-field"><span>Focus 03</span><strong>Democracy</strong></div>
+        <div class="dossier-field"><span>Focus 04</span><strong>Conflict Management</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="wrap">
+      <p class="sign-off">Filed under Governance &amp; Civil Society Strengthening</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="#research-consultancy">Next Case: Research &amp; Consultancy &rarr;</a>
+        <a class="btn btn-line" href="#what-we-do">&larr; All Cases</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div class="page" id="page-research-consultancy" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">What We Do &middot; Research &amp; Consultancy Services</span>
-    <h1>A research &amp; knowledge-generation powerhouse</h1>
-    <p>Evidence-based insight for public policy and civic actors, built on data gathered from the ground up.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="research-intro" style="border-top:none;">
+    <div class="wrap case-grid case-grid--photo-first">
+      <div class="dossier-photo">
+        <figure>
+          <img src="research-consultancy.jpg" alt="A researcher reviewing charts and printed research documents" loading="lazy">
+          <span class="dossier-seal-badge" aria-hidden="true">
+            <svg viewBox="0 0 240 240">
+              <defs><path id="idaSealTopResearch" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+              <circle cx="120" cy="120" r="118" fill="#fff"/>
+              <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+              <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+                <textPath href="#idaSealTopResearch" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+              </text>
+              <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+              <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+              <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+            </svg>
+          </span>
+        </figure>
+      </div>
+      <div class="case-copy">
+        <div class="tag-row">
+          <span class="tag">Research &amp; Consultancy</span>
+          <span class="case">Case 04 &middot; What We Do</span>
+        </div>
+        <div class="kicker" style="margin-top:14px;"><span class="dot"></span><span class="label">Research and Consultancy Services</span></div>
+        <h1 style="font-weight:700;font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.01em;margin:14px 0 16px;text-wrap:balance;font-family:'Roboto Slab',serif;">Purposeful and cutting&#8209;edge research to change status&#8209;quo</h1>
+        <p class="deck">IDEA conducts specialized, purposeful and cutting edge political and social research on behalf of NGOs, political parties, parastatals and government.</p>
+        <p class="body-copy" style="max-width:56ch;">IDEA also conducts in&#8209;house research on emerging contexts and in response to status quo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">Track Record</span></div><h2 class="section-title">Research We&rsquo;ve Led</h2></div>
+        <p class="section-note">Six studies IDEA has taken lead on.</p>
+      </div>
+      <div class="study-list">
+        <div class="study-item"><span class="num">01</span><p>A study on early warning signs for election violence in the build&#8209;up to the 2021 elections, by IDEA and WDN.</p></div>
+        <div class="study-item"><span class="num">02</span><p>A study on Civic Space and Digital Security, leading to the production of a handbook coordinated by the Centre for Constitutional Governance.</p></div>
+        <div class="study-item"><span class="num">03</span><p>A study on COVID and its impact on civil society and civic space, coordinated by Civ Source Africa.</p></div>
+        <div class="study-item"><span class="num">04</span><p>A study on women and youth aspirations in the build&#8209;up to the 2021 elections in oil and gas host districts, coordinated by Global Rights Alert.</p></div>
+        <div class="study-item"><span class="num">05</span><p>Consolidating a Movement for Political Accountability in a COVID and Post&#8209;Covid&#8209;19 Uganda, coordinated by the National NGO Forum.</p></div>
+        <div class="study-item"><span class="num">06</span><p>The Shrinking Civic Space Working Group Project, coordinated by Action Aid International&#8209;Uganda.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">Case 04 &middot; Pipeline</span></div><h2 class="section-title">Ideas We&rsquo;re Working On</h2></div>
+        <p class="section-note">Eight concepts currently in development.</p>
+      </div>
+      <div class="idea-ledger">
+        <div class="idea-ledger-item"><span>A guide for peaceful participation in civic struggles</span></div>
+        <div class="idea-ledger-item"><span>A Social Justice Centers Initiative &mdash; the DDD Initiative, mapping the Detained, the Disappeared and the Dead</span></div>
+        <div class="idea-ledger-item"><span>A Governance and civic space tracker</span></div>
+        <div class="idea-ledger-item"><span>A Civil Society Events Update Report and Resource Centre</span></div>
+        <div class="idea-ledger-item"><span>An Election Monitoring App</span></div>
+        <div class="idea-ledger-item"><span>A Human Rights Awareness Approach &mdash; an internet&#8209;based platform for reporting Human Rights abuses and their resolution</span></div>
+        <div class="idea-ledger-item"><span>A University Guild Leaders&rsquo; Thought Leadership Platform</span></div>
+        <div class="idea-ledger-item"><span>A statistics resource centre for governance and development</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="wrap">
+      <p class="sign-off">Filed under Research &amp; Consultancy Services</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="#contact-us">Contact IDEA &rarr;</a>
+        <a class="btn btn-line" href="#what-we-do">&larr; All Cases</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div class="page" id="page-think-tank" hidden>
