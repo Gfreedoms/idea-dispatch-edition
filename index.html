@@ -592,11 +592,17 @@ footer a:hover{color:var(--red-dark);}
 
 /* ---------- About Us: magazine pull-quote (Why We Exist) ---------- */
 .pullquote-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:44px;align-items:start;}
-@media (max-width:860px){.pullquote-grid{grid-template-columns:1fr;gap:20px;}}
-.pullquote-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:clamp(4rem,9vw,6.5rem);color:var(--red);line-height:.88;}
+@media (max-width:860px){.pullquote-grid{grid-template-columns:1fr;gap:28px;}}
+.gap-fact{border:1px solid var(--rule);border-top:3px solid var(--red);padding:28px 26px 24px;}
+.pullquote-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:clamp(3.2rem,7vw,5.2rem);color:var(--red);line-height:.88;display:block;}
 .pullquote-cap{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;display:block;}
+.gap-fact-note{font-family:'Roboto Slab',serif;font-style:italic;font-size:.92rem;color:var(--ink-soft);margin:16px 0 0;padding-top:14px;border-top:1px solid var(--rule);}
 .pullquote-body p{max-width:64ch;}
 .pullquote-body p + p{margin-top:14px;}
+.gap-lede::first-letter{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red);float:left;font-size:3.5rem;line-height:.78;padding:3px 8px 0 0;}
+.gap-marker{display:flex;align-items:center;gap:14px;margin:24px 0 20px;}
+.gap-marker span{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-dark);white-space:nowrap;}
+.gap-marker::after{content:"";flex:1;height:1px;background:var(--rule);}
 
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
@@ -949,12 +955,14 @@ footer a:hover{color:var(--red-dark);}
         <div><span class="label">Why We Exist</span><h2 class="section-title">The gap we close</h2></div>
       </div>
       <div class="pullquote-grid">
-        <div>
-          <div class="pullquote-num">12M</div>
+        <div class="gap-fact">
+          <span class="pullquote-num">12M</span>
           <span class="pullquote-cap">Young Ugandans</span>
+          <p class="gap-fact-note">&mdash; restless with ideas and aspirations for progress.</p>
         </div>
         <div class="pullquote-body">
-          <p>Uganda&rsquo;s population boom has gifted the country with twelve million young adults, many of whose minds are bubbling and restless with ideas and aspirations for socioeconomic progress and political revolution.</p>
+          <p class="gap-lede">Uganda&rsquo;s population boom has gifted the country with twelve million young adults, many of whose minds are bubbling and restless with ideas and aspirations for socioeconomic progress and political revolution.</p>
+          <div class="gap-marker"><span>The Gap</span></div>
           <p>The prevailing political order and architecture of the economy are both too weak, malformed, and externalized to constructively channel that energy and those dreams into building blocks for a more secure and predictable future. IDEA aspires to provide space and support for the fine&#8209;tuning, incubation, and actualization of pro&#8209;democracy and development concepts.</p>
         </div>
       </div>
