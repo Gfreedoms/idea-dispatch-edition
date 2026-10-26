@@ -523,8 +523,15 @@ footer a:hover{color:var(--red-dark);}
   filter:drop-shadow(0 4px 10px rgba(0,0,0,.28));
 }
 .dossier-seal-badge svg{width:100%;height:100%;color:var(--red);}
-.dossier-strip{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid var(--rule);}
-.dossier-field{display:flex;flex-direction:column;gap:5px;}
+#about-dossier .deck{margin-top:18px;padding-left:18px;border-left:3px solid var(--red);}
+.dossier-summary{margin-top:30px;}
+.dossier-summary-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red-dark);margin-bottom:10px;}
+.dossier-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-top:2px solid var(--red);
+}
+@media (max-width:480px){.dossier-strip{grid-template-columns:1fr;}}
+.dossier-field{background:var(--paper);padding:14px 16px;display:flex;flex-direction:column;gap:5px;}
 .dossier-field span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
 .dossier-field strong{font-family:'Roboto Slab',serif;font-weight:700;font-size:1rem;}
 .body-copy{color:var(--ink-soft);}
@@ -871,10 +878,13 @@ footer a:hover{color:var(--red-dark);}
         <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Who We Are</h1>
         <p class="deck">Innovations for Democratic Engagement and Action is a non&#8209;secular, non&#8209;aligned democracy ideas incubation hub and policy think tank, dedicated to shaping Uganda's democratic landscape.</p>
         <p class="body-copy" style="max-width:58ch;">Established primarily to support young people in re&#8209;channeling their energy, utilizing their demographic potential to pursue a progressive democratic future, IDEA serves as a platform for transformative ideas aimed at enhancing good governance, citizen participation, and accountability.</p>
-        <div class="dossier-strip">
-          <div class="dossier-field"><span>Status</span><strong>Non&#8209;secular, Non&#8209;aligned</strong></div>
-          <div class="dossier-field"><span>Classification</span><strong>Hub &amp; Policy Think Tank</strong></div>
-          <div class="dossier-field"><span>Serves</span><strong>12M Young Ugandans</strong></div>
+        <div class="dossier-summary">
+          <span class="dossier-summary-label">File Summary</span>
+          <div class="dossier-strip">
+            <div class="dossier-field"><span>Status</span><strong>Non&#8209;secular, Non&#8209;aligned</strong></div>
+            <div class="dossier-field"><span>Classification</span><strong>Hub &amp; Policy Think Tank</strong></div>
+            <div class="dossier-field"><span>Serves</span><strong>12M Young Ugandans</strong></div>
+          </div>
         </div>
       </div>
     </div>
