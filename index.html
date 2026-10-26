@@ -607,8 +607,26 @@ footer a:hover{color:var(--red-dark);}
 /* ---------- What We Do + Case pages: shared system ---------- */
 .fact-grid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:2px solid var(--red);margin-top:28px;}
 .fact-grid.cols-4{grid-template-columns:repeat(4,1fr);}
-@media (max-width:640px){.fact-grid.cols-4{grid-template-columns:repeat(2,1fr);}}
+.fact-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+@media (max-width:640px){.fact-grid.cols-4,.fact-grid.cols-3{grid-template-columns:repeat(2,1fr);}}
 .fact-grid .dossier-field{background:var(--paper);padding:14px 16px;}
+
+/* ---------- Publications: Register (non-image documents) ---------- */
+.register-list{border-top:1px solid var(--rule);margin-top:18px;}
+.register-item{
+  display:grid;grid-template-columns:70px 1fr auto;gap:22px;align-items:start;
+  padding:22px 0;border-bottom:1px solid var(--rule);
+}
+.register-item .file-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:.92rem;color:var(--red);letter-spacing:.02em;padding-top:2px;}
+.register-item .reg-cat{display:block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--red-dark);margin-bottom:6px;}
+.register-item h4{margin:0 0 6px;font-family:'Roboto Slab',serif;font-weight:700;font-size:1.08rem;line-height:1.35;text-wrap:balance;}
+.register-item p{margin:0;color:var(--ink-soft);font-size:.92rem;max-width:62ch;}
+.register-item .reg-link{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;padding-top:2px;}
+.register-item:hover h4,.register-item:hover .reg-link{color:var(--red-dark);}
+@media (max-width:700px){
+  .register-item{grid-template-columns:48px 1fr;}
+  .register-item .reg-link{display:none;}
+}
 
 .case-grid{display:grid;gap:48px;align-items:center;}
 .case-grid.case-grid--photo-first{grid-template-columns:1fr 1.05fr;}
@@ -1344,13 +1362,147 @@ footer a:hover{color:var(--red-dark);}
 </div>
 
 <div class="page" id="page-publications" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">Publications</span>
-    <h1>Publications</h1>
-    <p>Reports, trackers and analysis from IDEA's research teams, including the Uganda Human Rights Violations &amp; Election Violence Tracker and the Governance Trends Analysis Tracker.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="pubs-hero" style="border-top:none;">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="label">The Record &middot; Open Case Files</span></div>
+      <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Publications</h1>
+      <p class="deck" style="max-width:62ch;">Research studies, trackers and public statements &mdash; the primary documents behind IDEA&rsquo;s work on Uganda&rsquo;s democracy and governance.</p>
+      <div class="fact-grid cols-3">
+        <div class="dossier-field"><span>Press Statements</span><strong>4 Exhibits</strong></div>
+        <div class="dossier-field"><span>Research &amp; Reports</span><strong>6 Studies</strong></div>
+        <div class="dossier-field"><span>Trackers &amp; Audits</span><strong>1 Tracker</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pubs-exhibits" style="border-top:none;">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">Exhibits on File</span></div><h2 class="section-title">Statements &amp; advocacy</h2></div>
+        <p class="section-note">Primary documents issued in defence of civic space.</p>
+      </div>
+      <div class="exhibits">
+        <div class="exhibit">
+          <div class="shot"><img src="statement-attacks-on-ngos.jpg" alt="Civil Society Leaders' Statement on the Attacks on NGOs"></div>
+          <div class="meta">
+            <span class="eyebrow">Exhibit A &middot; 13 Dec 2020</span>
+            <h4>Civil Society Leaders' Statement on the Attacks on NGOs</h4>
+          </div>
+          <a class="read" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="exhibit">
+          <div class="shot"><img src="statement-parliament-speak-out.jpg" alt="The Ugandan Parliament Must Speak Out and Speak Loud"></div>
+          <div class="meta">
+            <span class="eyebrow">Exhibit B &middot; Statement</span>
+            <h4>The Ugandan Parliament Must Speak Out and Speak Loud</h4>
+          </div>
+          <a class="read" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="exhibit">
+          <div class="shot"><img src="statement-trial-of-civilians.jpg" alt="Trial of Civilians in Military Tribunals"></div>
+          <div class="meta">
+            <span class="eyebrow">Exhibit C &middot; Statement</span>
+            <h4>Trial of Civilians in Military Tribunals</h4>
+          </div>
+          <a class="read" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="exhibit">
+          <div class="shot"><img src="statement-abductions-torture.jpg" alt="Civil Society Leaders Demand Immediate End to Abductions, Torture"></div>
+          <div class="meta">
+            <span class="eyebrow">Exhibit D &middot; Statement</span>
+            <h4>Civil Society Leaders Demand an End to Abductions &amp; Torture</h4>
+          </div>
+          <a class="read" href="#publications">Read &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker"><span class="dot"></span><span class="label">The Register</span></div><h2 class="section-title">Research, Studies &amp; Trackers</h2></div>
+        <p class="section-note">Seven filed documents, numbered as logged.</p>
+      </div>
+      <div class="register-list">
+        <div class="register-item">
+          <span class="file-num">FILE 01</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports</span>
+            <h4>Uganda Human Rights Violations and Election Violence Tracker</h4>
+            <p>Documents the human rights violations and election&#8209;related violence around Uganda&rsquo;s 2021 elections, framed as state&#8209;versus&#8209;citizen conflict rather than citizen&#8209;versus&#8209;citizen.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 02</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports &middot; Opinion Polls</span>
+            <h4>Citizens&rsquo; Perceptions on the 2021 Elections</h4>
+            <p>A nationwide survey of over 4,000 citizens across 14 regions and 78 districts capturing experiences before, during and after the 2021 election &mdash; the largest study of its kind in the country.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 03</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports</span>
+            <h4>Uganda Governance Trends Analysis Tracker, August 2024</h4>
+            <p>First in a periodic series tracking political organizing, civil liberties, the judiciary and the electoral road map since the 2021 elections, feeding a future governance information portal.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 04</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports</span>
+            <h4>Uganda&rsquo;s Political Transition Scenarios To 2026 and Beyond</h4>
+            <p>Scenario analysis of Uganda&rsquo;s political transition prospects, tracing the arc from the 1986 NRA takeover to today&rsquo;s succession debates.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 05</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports</span>
+            <h4>Early Warning Signs for Violence in Uganda&rsquo;s 2021 Elections and Structures and Strategies for Mitigation</h4>
+            <p>A joint study with the Women&rsquo;s Democracy Network&ndash;Uganda on election&#8209;violence triggers, who the perpetrators and victims were, and mitigation structures.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 06</span>
+          <div>
+            <span class="reg-cat">Trackers &amp; Audits</span>
+            <h4>A Mapping of Actors That Are Documenting Uganda&rsquo;s Electoral Rights&#8209;Related Violations</h4>
+            <p>Maps the organisations tracking illegal arrests, incommunicado detention and disappearances in the post&#8209;2021&#8209;election period.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+        <div class="register-item">
+          <span class="file-num">FILE 07</span>
+          <div>
+            <span class="reg-cat">Research Studies &amp; Reports</span>
+            <h4>Democracy on Trial? An Analysis of Post&mdash;Election Litigation of the 2021 General Elections in Uganda</h4>
+            <p>Analyses the 150+ court petitions filed after the 2021 elections and what the pattern reveals about Uganda&rsquo;s electoral justice system.</p>
+          </div>
+          <a class="reg-link" href="#publications">Read &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="wrap">
+      <p class="sign-off">Filed in Kampala, Uganda</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="#contact-us">Request a Document &rarr;</a>
+        <a class="btn btn-line" href="#what-we-do">&larr; What We Do</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div class="page" id="page-blog" hidden>
