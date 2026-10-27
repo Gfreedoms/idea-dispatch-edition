@@ -102,13 +102,79 @@ nav.primary a{
   border-bottom:1px solid transparent;
 }
 nav.primary a:hover{border-bottom-color:var(--red);color:var(--red-dark);}
-.menu-btn{display:none;background:none;border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;}
+nav.primary .pn,nav.primary .primary-head,nav.primary .primary-foot{display:none;}
+.menu-btn{display:none;align-items:center;gap:8px;background:none;border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;}
+.menu-btn-icon{display:none;}
+
 @media (max-width:760px){
-  nav.primary{display:none;width:100%;flex-direction:column;gap:12px;padding-top:16px;border-top:1px solid var(--rule);margin-top:14px;}
-  nav.primary.open{display:flex;}
-  .menu-btn{display:block;}
   .nameplate .wrap{position:relative;}
   .tagline{display:none;}
+
+  .menu-btn{
+    display:flex;
+    border:none;padding:10px 2px;min-height:44px;
+    font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  }
+  .menu-btn[aria-expanded="true"]{position:fixed;top:14px;right:28px;z-index:70;color:#FFFFFF;}
+  .menu-btn-icon{display:block;position:relative;width:22px;height:14px;flex:none;}
+  .menu-btn-icon span{
+    position:absolute;left:0;width:100%;height:2px;background:currentColor;border-radius:1px;
+    transition:transform .3s ease,opacity .2s ease,top .3s ease;
+  }
+  .menu-btn-icon span:nth-child(1){top:0;}
+  .menu-btn-icon span:nth-child(2){top:6px;}
+  .menu-btn-icon span:nth-child(3){top:12px;}
+  .menu-btn[aria-expanded="true"] .menu-btn-icon span:nth-child(1){top:6px;transform:rotate(45deg);}
+  .menu-btn[aria-expanded="true"] .menu-btn-icon span:nth-child(2){opacity:0;}
+  .menu-btn[aria-expanded="true"] .menu-btn-icon span:nth-child(3){top:6px;transform:rotate(-45deg);}
+
+  nav.primary{
+    display:block;
+    position:fixed;inset:0;z-index:60;
+    background:var(--ink);
+    visibility:hidden;opacity:0;
+    transition:opacity .3s ease,visibility 0s .3s;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+  }
+  nav.primary.open{visibility:visible;opacity:1;transition:opacity .3s ease;}
+  html.nav-open{overflow:hidden;}
+  html.nav-open .float-social{display:none;}
+
+  .primary-inner{
+    min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;
+    padding:104px 28px 36px;
+  }
+  nav.primary .primary-head{
+    display:block;color:#FFD9DA;margin-bottom:10px;
+  }
+  nav.primary a{
+    display:flex;align-items:baseline;gap:16px;
+    padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);
+    font-family:'Roboto Slab',serif;font-weight:700;font-size:1.3rem;
+    color:#FFFFFF;
+    opacity:0;transform:translateY(10px);
+    transition:opacity .35s ease,transform .35s ease,color .2s ease;
+  }
+  nav.primary.open a{opacity:1;transform:translateY(0);}
+  nav.primary a:nth-of-type(1){transition-delay:.05s;}
+  nav.primary a:nth-of-type(2){transition-delay:.09s;}
+  nav.primary a:nth-of-type(3){transition-delay:.13s;}
+  nav.primary a:nth-of-type(4){transition-delay:.17s;}
+  nav.primary a:nth-of-type(5){transition-delay:.21s;}
+  nav.primary a:nth-of-type(6){transition-delay:.25s;}
+  nav.primary a:nth-of-type(7){transition-delay:.29s;}
+  nav.primary .pn{display:inline-block;font-size:.85rem;font-weight:700;color:#FFD9DA;min-width:24px;}
+  nav.primary a:hover,nav.primary a:focus-visible{color:#FFD9DA;border-bottom-color:rgba(255,255,255,.3);}
+  nav.primary a.active{color:#FFD9DA;}
+  nav.primary a.active .pn{color:var(--red);}
+  nav.primary .primary-foot{
+    display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:28px;
+    font-size:12.5px;color:rgba(255,255,255,.6);
+  }
+}
+
+@media (max-width:760px) and (prefers-reduced-motion:reduce){
+  nav.primary a{opacity:1;transform:none;transition:color .2s ease;transition-delay:0s !important;}
 }
 
 /* ---------- Hero ---------- */
@@ -863,15 +929,25 @@ a.contact-info-value:hover{color:var(--red-dark);}
       <img src="logo-black.svg" alt="IDEA — Innovations for Democratic Engagement and Action" width="150" height="28">
       <span class="tagline">Democracy Ideas Incubation Hub &amp; Policy Think Tank</span>
     </div>
-    <button class="menu-btn" aria-expanded="false" aria-controls="primaryNav" onclick="var n=document.getElementById('primaryNav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);">Menu</button>
-    <nav class="primary" id="primaryNav">
-      <a href="#">Home</a>
-      <a href="#about-us">About Us</a>
-      <a href="#what-we-do">What We Do</a>
-      <a href="#current-projects">Current Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#blog">The Wire</a>
-      <a href="#contact-us">Contact Us</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+      <span class="menu-btn-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-btn-label">Menu</span>
+    </button>
+    <nav class="primary" id="primaryNav" aria-label="Primary">
+      <div class="primary-inner">
+        <span class="primary-head label">Navigate</span>
+        <a href="#" data-slug="home"><span class="pn">01</span><span class="pt">Home</span></a>
+        <a href="#about-us" data-slug="about-us"><span class="pn">02</span><span class="pt">About Us</span></a>
+        <a href="#what-we-do" data-slug="what-we-do"><span class="pn">03</span><span class="pt">What We Do</span></a>
+        <a href="#current-projects" data-slug="current-projects"><span class="pn">04</span><span class="pt">Current Projects</span></a>
+        <a href="#publications" data-slug="publications"><span class="pn">05</span><span class="pt">Publications</span></a>
+        <a href="#blog" data-slug="blog"><span class="pn">06</span><span class="pt">The Wire</span></a>
+        <a href="#contact-us" data-slug="contact-us"><span class="pn">07</span><span class="pt">Contact Us</span></a>
+        <div class="primary-foot">
+          <span>info@ideaug.org</span>
+          <span>Kampala, Uganda</span>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -1841,13 +1917,23 @@ a.contact-info-value:hover{color:var(--red-dark);}
   var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
   if(!pages.length) return;
   var slugs = ['home','about-us','what-we-do','innovations-lab','governance-civil-society','research-consultancy','think-tank','current-projects','publications','blog','contact-us'];
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav.primary a[data-slug]'));
 
   function showPage(id){
     pages.forEach(function(p){ p.hidden = (p.id !== id); });
   }
 
+  function setActiveNav(slug){
+    navLinks.forEach(function(a){
+      var match = a.getAttribute('data-slug') === slug;
+      a.classList.toggle('active', match);
+      if(match){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+    });
+  }
+
   function route(){
     var raw = location.hash.replace('#','');
+    setActiveNav(slugs.indexOf(raw) !== -1 ? raw : 'home');
     if(!raw){
       showPage('page-home');
       return;
@@ -1865,6 +1951,41 @@ a.contact-info-value:hover{color:var(--red-dark);}
 
   window.addEventListener('hashchange', route);
   route();
+})();
+
+(function(){
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('primaryNav');
+  if(!btn || !nav) return;
+  var html = document.documentElement;
+  var label = btn.querySelector('.menu-btn-label');
+
+  function closeNav(){
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','Open menu');
+    if(label){ label.textContent = 'Menu'; }
+    html.classList.remove('nav-open');
+  }
+  function openNav(){
+    nav.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    btn.setAttribute('aria-label','Close menu');
+    if(label){ label.textContent = 'Close'; }
+    html.classList.add('nav-open');
+    var first = nav.querySelector('a');
+    if(first){ first.focus(); }
+  }
+  btn.addEventListener('click', function(){
+    if(nav.classList.contains('open')){ closeNav(); btn.focus(); } else { openNav(); }
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.closest('a')){ closeNav(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('open')){ closeNav(); btn.focus(); }
+  });
+  window.addEventListener('hashchange', closeNav);
 })();
 
 (function(){
