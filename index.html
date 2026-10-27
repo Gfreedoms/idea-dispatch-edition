@@ -703,6 +703,32 @@ footer a:hover{color:var(--red-dark);}
 .browser .exhibits{box-shadow:none;border:1px solid var(--rule);}
 .browser .register-list,.browser .study-list,.browser .wire-ticker{border-top:none;margin-top:0;}
 
+/* ---------- Contact Us ---------- */
+.contact-form{display:flex;flex-direction:column;gap:20px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-field label{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);}
+.form-field label .optional{font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink-soft);opacity:.75;}
+.form-field input,.form-field textarea{
+  border:1px solid var(--rule);background:var(--paper);padding:12px 14px;
+  font:inherit;font-size:.95rem;color:var(--ink);font-family:'Roboto',sans-serif;
+}
+.form-field input:focus-visible,.form-field textarea:focus-visible{outline:2px solid var(--focus);outline-offset:1px;}
+.form-field textarea{resize:vertical;min-height:120px;}
+.form-note{margin:0;font-size:.8rem;color:var(--ink-soft);max-width:48ch;}
+
+.contact-info{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:2px solid var(--red);}
+.contact-info-card{background:var(--paper);padding:22px 24px;}
+.contact-info-card .label{display:block;margin-bottom:8px;}
+.contact-info-value{display:block;font-family:'Roboto Slab',serif;font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;margin:0;}
+a.contact-info-value:hover{color:var(--red-dark);}
+.contact-social{display:flex;gap:10px;}
+.contact-social a{
+  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--rule);color:var(--ink);text-decoration:none;
+}
+.contact-social a:hover{border-color:var(--red);color:var(--red-dark);}
+.contact-social svg{width:17px;height:17px;fill:currentColor;}
+
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
@@ -1558,13 +1584,79 @@ footer a:hover{color:var(--red-dark);}
 </div>
 
 <div class="page" id="page-contact-us" hidden>
-  <div class="page-placeholder wrap">
-    <span class="coming-tag">Design in progress</span>
-    <span class="label">Contact Us</span>
-    <h1>Get in touch</h1>
-    <p>Reach the IDEA team directly at <a href="mailto:info@ideaug.org">info@ideaug.org</a> while this page's full design is on the way.</p>
-    <a class="btn btn-line" href="#">&larr; Back to Home</a>
-  </div>
+
+  <section class="section" id="contact-hero" style="border-top:none;">
+    <div class="wrap">
+      <div class="kicker"><span class="dot"></span><span class="label">Get In Touch &middot; File a Dispatch</span></div>
+      <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Contact Us</h1>
+      <p class="deck" style="max-width:62ch;">Questions, story tips, partnership inquiries &mdash; reach the IDEA team directly. We read every message personally.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:none;">
+    <div class="wrap case-grid case-grid--text-first">
+      <div class="case-copy">
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="cf-name">Your Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Your Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-message">Your Message <span class="optional">(optional)</span></label>
+            <textarea id="cf-message" name="message" rows="5"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-solid">Send via Email &rarr;</button>
+          </div>
+          <p class="form-note">Opens your email client with this message pre&#8209;filled, addressed to info@ideaug.org &mdash; nothing is sent from this page directly.</p>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-card">
+          <span class="label">Email</span>
+          <a class="contact-info-value" href="mailto:info@ideaug.org">info@ideaug.org</a>
+        </div>
+        <div class="contact-info-card">
+          <span class="label">Location</span>
+          <p class="contact-info-value" style="margin-bottom:14px;">Kampala, Uganda</p>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Kampala%2C+Uganda" target="_blank" rel="noopener">View on Map &#8599;</a>
+        </div>
+        <div class="contact-info-card">
+          <span class="label">Follow</span>
+          <nav class="contact-social" aria-label="Social media">
+            <a href="https://x.com/IDEAUganda" target="_blank" rel="noopener" aria-label="IDEA on X (Twitter)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.5 22H1.4l8.2-9.3L1 2h7.2l5 6.6L18.9 2Zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20Z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/IDEAUganda" target="_blank" rel="noopener" aria-label="IDEA on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.86c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@IDEAUganda" target="_blank" rel="noopener" aria-label="IDEA on YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 7.2a3 3 0 0 0-2.1-2.1C19.6 4.6 12 4.6 12 4.6s-7.6 0-9.4.5A3 3 0 0 0 .5 7.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-4.8ZM9.6 15.5V8.5L15.8 12l-6.2 3.5Z"/></svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="wrap">
+      <p class="sign-off">Filed in Kampala, Uganda</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="#what-we-do">What We Do &rarr;</a>
+        <a class="btn btn-line" href="#about-us">&larr; About Us</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <footer id="contact">
@@ -1884,5 +1976,23 @@ footer a:hover{color:var(--red-dark);}
     };
   }));
   initBrowser({ root:'#wire-browser', navLabel:'Browse by Month', pageSize:5, sections: wireSections });
+})();
+
+(function(){
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var subject = form.subject.value.trim() || ('Message from ' + (name || 'the IDEA website'));
+    var message = form.message.value.trim();
+    var lines = [];
+    if(name) lines.push('Name: ' + name);
+    if(email) lines.push('Email: ' + email);
+    if(message) lines.push('', message);
+    var mailto = 'mailto:info@ideaug.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    window.location.href = mailto;
+  });
 })();
 </script>
