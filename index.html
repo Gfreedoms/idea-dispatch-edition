@@ -729,6 +729,15 @@ a.contact-info-value:hover{color:var(--red-dark);}
 .contact-social a:hover{border-color:var(--red);color:var(--red-dark);}
 .contact-social svg{width:17px;height:17px;fill:currentColor;}
 
+.case-copy .docket-feature{margin-bottom:0;}
+.case-copy .docket-feature .ghost-num{font-size:clamp(4.5rem,9vw,6.5rem);}
+.form-field label{display:flex;align-items:baseline;gap:8px;}
+.form-field .fnum{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red);font-size:.95em;}
+
+.contact-info{position:relative;}
+.contact-seal{position:absolute;top:-20px;right:22px;width:76px;height:76px;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));}
+@media (max-width:860px){.contact-seal{right:auto;left:22px;}}
+
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
@@ -1596,30 +1605,51 @@ a.contact-info-value:hover{color:var(--red-dark);}
   <section class="section" style="border-top:none;">
     <div class="wrap case-grid case-grid--text-first">
       <div class="case-copy">
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-field">
-            <label for="cf-name">Your Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        <div class="docket-feature">
+          <span class="ghost-num">01</span>
+          <div class="tag-row">
+            <span class="tag">New Intake</span>
+            <span class="case">Dispatch Form &middot; Open</span>
           </div>
-          <div class="form-field">
-            <label for="cf-email">Your Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-subject">Subject</label>
-            <input type="text" id="cf-subject" name="subject" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-message">Your Message <span class="optional">(optional)</span></label>
-            <textarea id="cf-message" name="message" rows="5"></textarea>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-solid">Send via Email &rarr;</button>
-          </div>
-          <p class="form-note">Opens your email client with this message pre&#8209;filled, addressed to info@ideaug.org &mdash; nothing is sent from this page directly.</p>
-        </form>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-field">
+              <label for="cf-name"><span class="fnum">01</span>Your Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-email"><span class="fnum">02</span>Your Email</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-subject"><span class="fnum">03</span>Subject</label>
+              <input type="text" id="cf-subject" name="subject" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-message"><span class="fnum">04</span>Your Message <span class="optional">(optional)</span></label>
+              <textarea id="cf-message" name="message" rows="5"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-solid">Send via Email &rarr;</button>
+            </div>
+            <p class="form-note">Opens your email client with this message pre&#8209;filled, addressed to info@ideaug.org &mdash; nothing is sent from this page directly.</p>
+          </form>
+        </div>
       </div>
       <div class="contact-info">
+        <span class="dossier-seal-badge contact-seal" aria-hidden="true">
+          <svg viewBox="0 0 240 240">
+            <defs><path id="idaSealTopContact" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+            <circle cx="120" cy="120" r="118" fill="#fff"/>
+            <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+            <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+              <textPath href="#idaSealTopContact" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+            </text>
+            <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+            <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+            <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+          </svg>
+        </span>
         <div class="contact-info-card">
           <span class="label">Email</span>
           <a class="contact-info-value" href="mailto:info@ideaug.org">info@ideaug.org</a>
