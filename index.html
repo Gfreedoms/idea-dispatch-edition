@@ -507,15 +507,14 @@ footer{
   color:rgba(255,255,255,.045);
   white-space:nowrap;pointer-events:none;user-select:none;z-index:0;
 }
-.foot-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .8fr .8fr 1.1fr;gap:32px;}
-@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:460px){.foot-grid{grid-template-columns:1fr;}}
+.foot-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;}
 footer h5{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;}
 footer a{text-decoration:none;font-size:.92rem;}
 footer a:hover{color:var(--red-dark);}
+.foot-brand{max-width:360px;}
 .foot-brand img{height:28px;margin-bottom:12px;}
 .foot-brand p{color:var(--ink-soft);font-size:.88rem;max-width:30ch;margin:0;}
+.foot-news{max-width:280px;}
 .foot-news p{color:var(--ink-soft);font-size:.88rem;margin:0 0 14px;max-width:26ch;line-height:1.5;}
 .news-form{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .2s ease;}
 .news-form:focus-within{border-color:var(--red-dark);}
@@ -530,13 +529,13 @@ footer a:hover{color:var(--red-dark);}
   padding:8px 2px;white-space:nowrap;
 }
 .news-form button:hover{color:#fff;}
-.foot-news .direct-email{display:block;margin-top:16px;font-size:.9rem;}
 .foot-bottom{
   position:relative;z-index:1;
-  margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  margin-top:32px;padding-top:20px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
   font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase;
 }
+.foot-handle{opacity:.7;}
 
 @media (prefers-reduced-motion:no-preference){
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
@@ -1845,22 +1844,11 @@ a.contact-info-value:hover{color:var(--red-dark);}
 <footer id="contact">
   <span class="foot-ghost" aria-hidden="true">IDEA</span>
   <div class="wrap">
-    <div class="foot-grid">
+    <div class="foot-top">
       <div class="foot-brand">
         <img src="logo-white.svg" alt="IDEA">
         <p>Innovations for Democratic Engagement and Action &mdash; a democracy ideas incubation hub and policy think tank.</p>
       </div>
-      <div><h5>Navigate</h5><ul>
-        <li><a href="#about-us">About Us</a></li>
-        <li><a href="#what-we-do">What We Do</a></li>
-        <li><a href="#current-projects">Current Projects</a></li>
-        <li><a href="#publications">Publications</a></li>
-      </ul></div>
-      <div><h5>Follow</h5><ul>
-        <li><a href="https://x.com/IDEAUganda" target="_blank" rel="noopener">X / Twitter</a></li>
-        <li><a href="https://www.facebook.com/IDEAUganda" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.youtube.com/@IDEAUganda" target="_blank" rel="noopener">YouTube</a></li>
-      </ul></div>
       <div class="foot-news">
         <h5>Stay Informed</h5>
         <p>Weekly governance dispatches, straight to your inbox.</p>
@@ -1869,12 +1857,11 @@ a.contact-info-value:hover{color:var(--red-dark);}
           <input id="footEmail" type="email" placeholder="you@email.com" required>
           <button type="submit">Subscribe</button>
         </form>
-        <a class="direct-email" href="mailto:info@ideaug.org">info@ideaug.org</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 IDEA &mdash; @IDEAUganda</span>
-      <span>Filed from Kampala, Uganda</span>
+      <span>&copy; 2026 IDEA &mdash; Kampala, Uganda</span>
+      <span class="foot-handle">@IDEAUganda</span>
     </div>
   </div>
 </footer>
