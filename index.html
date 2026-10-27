@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <title>Dispatch Edition</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -655,6 +656,52 @@ footer a:hover{color:var(--red-dark);}
 .study-item{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--rule);}
 .study-item .num{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red-dark);font-size:1rem;}
 .study-item p{margin:0;color:var(--ink-soft);max-width:68ch;}
+
+/* ---------- Browser: sidebar + filterable, paginated list ---------- */
+.browser{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:start;}
+@media (max-width:860px){.browser{grid-template-columns:1fr;gap:26px;}}
+.browser-nav{position:sticky;top:20px;}
+@media (max-width:860px){.browser-nav{position:static;padding-bottom:18px;border-bottom:1px solid var(--rule);}}
+.browser-nav-label{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding-left:17px;margin-bottom:8px;}
+.browser-nav ul{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule);}
+@media (max-width:860px){.browser-nav ul{display:flex;flex-wrap:wrap;gap:8px;border-left:none;}}
+.browser-nav-item{
+  display:flex;width:100%;justify-content:space-between;align-items:center;gap:10px;
+  background:none;border:none;border-left:2px solid transparent;margin-left:-1px;
+  padding:9px 10px 9px 15px;font:inherit;font-size:.9rem;font-weight:600;color:var(--ink-soft);
+  text-align:left;cursor:pointer;
+}
+@media (max-width:860px){
+  .browser-nav-item{width:auto;border:1px solid var(--rule);border-radius:999px;padding:6px 14px;margin-left:0;}
+}
+.browser-nav-item:hover{color:var(--ink);}
+.browser-nav-item.is-active{border-left-color:var(--red);color:var(--red-dark);background:var(--red-tint);}
+@media (max-width:860px){.browser-nav-item.is-active{background:var(--red);color:#fff;border-color:var(--red);}}
+.browser-nav-item .count{font-size:.74rem;color:var(--ink-soft);font-weight:700;}
+.browser-nav-item.is-active .count{color:inherit;opacity:.75;}
+
+.browser-header h3{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.45rem;margin:10px 0;text-wrap:balance;}
+.browser-header p{margin:0;color:var(--ink-soft);max-width:62ch;}
+
+.browser-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.browser-search{flex:1;min-width:180px;border:1px solid var(--rule);background:var(--paper);padding:9px 14px;font:inherit;font-size:.88rem;color:var(--ink);}
+.browser-search:focus-visible{outline:2px solid var(--focus);outline-offset:1px;}
+.browser-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:var(--paper);border:1px solid var(--rule);color:var(--ink-soft);font-size:.76rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;padding:7px 13px;cursor:pointer;}
+.chip:hover{border-color:var(--ink-soft);color:var(--ink);}
+.chip.is-active{background:var(--red);border-color:var(--red);color:#fff;}
+
+.browser-list{min-height:60px;}
+.browser-empty{padding:34px 0;text-align:center;color:var(--ink-soft);font-size:.92rem;}
+
+.browser-pager{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:10px;padding-top:22px;border-top:1px solid var(--rule);}
+.pager-btn{background:none;border:1px solid var(--rule);color:var(--ink);font:inherit;font-size:.8rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;padding:8px 16px;cursor:pointer;}
+.pager-btn:hover:not(:disabled){border-color:var(--red);color:var(--red-dark);}
+.pager-btn:disabled{opacity:.35;cursor:default;}
+.pager-status{font-size:.8rem;color:var(--ink-soft);font-weight:600;white-space:nowrap;}
+
+.browser .exhibits{box-shadow:none;border:1px solid var(--rule);}
+.browser .register-list,.browser .study-list,.browser .wire-ticker{border-top:none;margin-top:0;}
 
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
@@ -1445,120 +1492,9 @@ footer a:hover{color:var(--red-dark);}
     </div>
   </section>
 
-  <section class="section" id="pubs-exhibits" style="border-top:none;">
+  <section class="section" id="pubs-browser-sec" style="border-top:none;">
     <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker"><span class="dot"></span><span class="label">Exhibits on File</span></div><h2 class="section-title">Statements &amp; advocacy</h2></div>
-        <p class="section-note">Primary documents issued in defence of civic space.</p>
-      </div>
-      <div class="exhibits">
-        <div class="exhibit">
-          <div class="shot"><img src="statement-attacks-on-ngos.jpg" alt="Civil Society Leaders' Statement on the Attacks on NGOs"></div>
-          <div class="meta">
-            <span class="eyebrow">Exhibit A &middot; 13 Dec 2020</span>
-            <h4>Civil Society Leaders' Statement on the Attacks on NGOs</h4>
-          </div>
-          <a class="read" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="exhibit">
-          <div class="shot"><img src="statement-parliament-speak-out.jpg" alt="The Ugandan Parliament Must Speak Out and Speak Loud"></div>
-          <div class="meta">
-            <span class="eyebrow">Exhibit B &middot; Statement</span>
-            <h4>The Ugandan Parliament Must Speak Out and Speak Loud</h4>
-          </div>
-          <a class="read" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="exhibit">
-          <div class="shot"><img src="statement-trial-of-civilians.jpg" alt="Trial of Civilians in Military Tribunals"></div>
-          <div class="meta">
-            <span class="eyebrow">Exhibit C &middot; Statement</span>
-            <h4>Trial of Civilians in Military Tribunals</h4>
-          </div>
-          <a class="read" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="exhibit">
-          <div class="shot"><img src="statement-abductions-torture.jpg" alt="Civil Society Leaders Demand Immediate End to Abductions, Torture"></div>
-          <div class="meta">
-            <span class="eyebrow">Exhibit D &middot; Statement</span>
-            <h4>Civil Society Leaders Demand an End to Abductions &amp; Torture</h4>
-          </div>
-          <a class="read" href="#publications">Read &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="kicker"><span class="dot"></span><span class="label">The Register</span></div><h2 class="section-title">Research, Studies &amp; Trackers</h2></div>
-        <p class="section-note">Seven filed documents, numbered as logged.</p>
-      </div>
-      <div class="register-list">
-        <div class="register-item">
-          <span class="file-num">FILE 01</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports</span>
-            <h4>Uganda Human Rights Violations and Election Violence Tracker</h4>
-            <p>Documents the human rights violations and election&#8209;related violence around Uganda&rsquo;s 2021 elections, framed as state&#8209;versus&#8209;citizen conflict rather than citizen&#8209;versus&#8209;citizen.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 02</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports &middot; Opinion Polls</span>
-            <h4>Citizens&rsquo; Perceptions on the 2021 Elections</h4>
-            <p>A nationwide survey of over 4,000 citizens across 14 regions and 78 districts capturing experiences before, during and after the 2021 election &mdash; the largest study of its kind in the country.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 03</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports</span>
-            <h4>Uganda Governance Trends Analysis Tracker, August 2024</h4>
-            <p>First in a periodic series tracking political organizing, civil liberties, the judiciary and the electoral road map since the 2021 elections, feeding a future governance information portal.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 04</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports</span>
-            <h4>Uganda&rsquo;s Political Transition Scenarios To 2026 and Beyond</h4>
-            <p>Scenario analysis of Uganda&rsquo;s political transition prospects, tracing the arc from the 1986 NRA takeover to today&rsquo;s succession debates.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 05</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports</span>
-            <h4>Early Warning Signs for Violence in Uganda&rsquo;s 2021 Elections and Structures and Strategies for Mitigation</h4>
-            <p>A joint study with the Women&rsquo;s Democracy Network&ndash;Uganda on election&#8209;violence triggers, who the perpetrators and victims were, and mitigation structures.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 06</span>
-          <div>
-            <span class="reg-cat">Trackers &amp; Audits</span>
-            <h4>A Mapping of Actors That Are Documenting Uganda&rsquo;s Electoral Rights&#8209;Related Violations</h4>
-            <p>Maps the organisations tracking illegal arrests, incommunicado detention and disappearances in the post&#8209;2021&#8209;election period.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-        <div class="register-item">
-          <span class="file-num">FILE 07</span>
-          <div>
-            <span class="reg-cat">Research Studies &amp; Reports</span>
-            <h4>Democracy on Trial? An Analysis of Post&mdash;Election Litigation of the 2021 General Elections in Uganda</h4>
-            <p>Analyses the 150+ court petitions filed after the 2021 elections and what the pattern reveals about Uganda&rsquo;s electoral justice system.</p>
-          </div>
-          <a class="reg-link" href="#publications">Read &rarr;</a>
-        </div>
-      </div>
+      <div class="browser" id="pubs-browser"></div>
     </div>
   </section>
 
@@ -1600,33 +1536,12 @@ footer a:hover{color:var(--red-dark);}
         <h3>Sovereignty Bill: 11 Parliament MPs Are Likely to Be Its First Victims</h3>
         <a class="rd" href="#blog">Read the analysis &rarr;</a>
       </article>
+    </div>
+  </section>
 
-      <div class="wire-ticker">
-        <div class="wire-row"><div><span class="eyebrow">29 Nov 2025</span><h4>Uganda Weekly Governance &mdash; Issue 24 (10th Nov&ndash;16th Nov 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">12 Nov 2025</span><h4>Uganda Weekly Governance &mdash; Issue 23 (3rd Nov&ndash;9th Nov 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">5 Nov 2025</span><h4>Uganda Weekly Governance &mdash; Issue 22 (27th Oct&ndash;2nd Nov 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">31 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 21 (20th Oct&ndash;26th Oct 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">21 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 20 (13th Oct&ndash;19th Oct 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">21 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 19 (6th Oct&ndash;12th Oct 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">12 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 18 (29th Sept&ndash;5th Oct 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">6 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 17 (22nd Sept&ndash;28th Sept 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">6 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 16 (15th Sept&ndash;21st Sept 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">6 Oct 2025</span><h4>Uganda Weekly Governance &mdash; Issue 15 (8th Sept&ndash;14th Sept 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">18 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 10 (27th July&ndash;3rd Aug 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">17 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 14 (1st Sept&ndash;7th Sept 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">17 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 13 (25th Aug&ndash;31st Aug 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">17 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 12 (18th Aug&ndash;24th Aug 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">17 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 11 (11th Aug&ndash;17th Aug 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">17 Sept 2025</span><h4>Uganda Weekly Governance &mdash; Issue 9 (21st July&ndash;27th July 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">27 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 8 (14th July&ndash;20th July 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">27 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 7 (7th July&ndash;12th July 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">27 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 6 (30th June&ndash;6th July 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">14 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 5 (23rd June&ndash;29th June 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">7 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 4 (16th June&ndash;22nd June 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">4 July 2025</span><h4>Uganda Weekly Governance &mdash; Issue 3 (9th June&ndash;15th June 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">22 June 2025</span><h4>Uganda Weekly Governance &mdash; Issue 2 (2 June&ndash;8 June 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-        <div class="wire-row"><div><span class="eyebrow">2 June 2025</span><h4>Uganda Weekly Governance &mdash; Issue 1 (25 May&ndash;1 June 2025)</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>
-      </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="browser" id="wire-browser"></div>
     </div>
   </section>
 
@@ -1751,5 +1666,223 @@ footer a:hover{color:var(--red-dark);}
 
   window.addEventListener('hashchange', route);
   route();
+})();
+
+(function(){
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function initBrowser(opts){
+    var root = document.querySelector(opts.root);
+    if(!root) return;
+    var state = { sectionId: opts.sections[0].id, search:'', chip:'all', page:1 };
+
+    function section(){
+      for(var i=0;i<opts.sections.length;i++){ if(opts.sections[i].id===state.sectionId) return opts.sections[i]; }
+      return opts.sections[0];
+    }
+
+    function filtered(sec){
+      var items = sec.items;
+      if(state.search){
+        var q = state.search.toLowerCase();
+        items = items.filter(function(it){ return it.title.toLowerCase().indexOf(q) !== -1; });
+      }
+      if(sec.chips && state.chip !== 'all'){
+        items = items.filter(function(it){ return it.chip === state.chip; });
+      }
+      return items;
+    }
+
+    function render(){
+      var sec = section();
+      var items = filtered(sec);
+      var pageSize = opts.pageSize;
+      var totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+      if(state.page > totalPages) state.page = totalPages;
+      var start = (state.page-1)*pageSize;
+      var pageItems = items.slice(start, start+pageSize);
+
+      var navHtml = '<span class="browser-nav-label">'+esc(opts.navLabel||'Browse')+'</span><ul>' +
+        opts.sections.map(function(s){
+          return '<li><button type="button" class="browser-nav-item'+(s.id===state.sectionId?' is-active':'')+'" data-section="'+s.id+'">'+esc(s.navLabel)+' <span class="count">'+s.items.length+'</span></button></li>';
+        }).join('') + '</ul>';
+
+      var chipsHtml = '';
+      if(sec.chips){
+        chipsHtml = '<div class="browser-chips">' +
+          [{id:'all',label:'All'}].concat(sec.chips).map(function(c){
+            return '<button type="button" class="chip'+(state.chip===c.id?' is-active':'')+'" data-chip="'+c.id+'">'+esc(c.label)+'</button>';
+          }).join('') + '</div>';
+      }
+
+      var listHtml = pageItems.length
+        ? pageItems.map(sec.renderItem).join('')
+        : '<p class="browser-empty">No entries match your search.</p>';
+
+      var pagerHtml = '<div class="browser-pager">' +
+        '<button type="button" class="pager-btn" data-dir="prev"'+(state.page<=1?' disabled':'')+'>&larr; Prev</button>' +
+        '<span class="pager-status">Page '+state.page+' of '+totalPages+' &middot; '+items.length+' filed</span>' +
+        '<button type="button" class="pager-btn" data-dir="next"'+(state.page>=totalPages?' disabled':'')+'>Next &rarr;</button>' +
+        '</div>';
+
+      root.innerHTML =
+        '<nav class="browser-nav">'+navHtml+'</nav>' +
+        '<div class="browser-main">' +
+          '<div class="browser-header">' +
+            '<div class="kicker"><span class="dot"></span><span class="label">'+esc(sec.kicker)+'</span></div>' +
+            '<h3>'+esc(sec.heading)+'</h3>' +
+            '<p>'+esc(sec.description)+'</p>' +
+          '</div>' +
+          '<div class="browser-filters">' +
+            '<input type="search" class="browser-search" placeholder="Search '+esc(sec.navLabel)+'&hellip;" value="'+esc(state.search)+'" aria-label="Search '+esc(sec.navLabel)+'">' +
+            chipsHtml +
+          '</div>' +
+          '<div class="browser-list">'+listHtml+'</div>' +
+          pagerHtml +
+        '</div>';
+
+      bind();
+    }
+
+    function bind(){
+      Array.prototype.forEach.call(root.querySelectorAll('.browser-nav-item'), function(btn){
+        btn.addEventListener('click', function(){
+          state.sectionId = btn.getAttribute('data-section');
+          state.search=''; state.chip='all'; state.page=1;
+          render();
+          root.scrollIntoView({block:'start', behavior:'smooth'});
+        });
+      });
+      var search = root.querySelector('.browser-search');
+      if(search){
+        search.addEventListener('input', function(){
+          state.search = search.value; state.page = 1;
+          render();
+          var el = root.querySelector('.browser-search');
+          if(el){ el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+        });
+      }
+      Array.prototype.forEach.call(root.querySelectorAll('.chip'), function(btn){
+        btn.addEventListener('click', function(){
+          state.chip = btn.getAttribute('data-chip');
+          state.page = 1;
+          render();
+        });
+      });
+      Array.prototype.forEach.call(root.querySelectorAll('.pager-btn'), function(btn){
+        btn.addEventListener('click', function(){
+          if(btn.disabled) return;
+          state.page += (btn.getAttribute('data-dir')==='next' ? 1 : -1);
+          render();
+          root.querySelector('.browser-main').scrollIntoView({block:'start', behavior:'smooth'});
+        });
+      });
+    }
+
+    render();
+  }
+
+  /* ---------- Publications browser ---------- */
+  initBrowser({
+    root: '#pubs-browser',
+    navLabel: 'Browse Publications',
+    pageSize: 5,
+    sections: [
+      {
+        id: 'exhibits',
+        navLabel: 'Exhibits',
+        kicker: 'Exhibits on File',
+        heading: 'Statements & advocacy',
+        description: 'Primary documents issued in defence of civic space — official press statements filed by IDEA and allied civil society organisations.',
+        chips: null,
+        items: [
+          {letter:'A', date:'13 Dec 2020', title:"Civil Society Leaders' Statement on the Attacks on NGOs", img:'statement-attacks-on-ngos.jpg'},
+          {letter:'B', date:'Statement', title:'The Ugandan Parliament Must Speak Out and Speak Loud', img:'statement-parliament-speak-out.jpg'},
+          {letter:'C', date:'Statement', title:'Trial of Civilians in Military Tribunals', img:'statement-trial-of-civilians.jpg'},
+          {letter:'D', date:'Statement', title:'Civil Society Leaders Demand an End to Abductions & Torture', img:'statement-abductions-torture.jpg'}
+        ],
+        renderItem: function(it){
+          return '<div class="exhibit"><div class="shot"><img src="'+esc(it.img)+'" alt="'+esc(it.title)+'"></div><div class="meta"><span class="eyebrow">Exhibit '+it.letter+' &middot; '+esc(it.date)+'</span><h4>'+esc(it.title)+'</h4></div><a class="read" href="#publications">Read &rarr;</a></div>';
+        }
+      },
+      {
+        id: 'register',
+        navLabel: 'The Register',
+        kicker: 'The Register',
+        heading: 'Research, studies & trackers',
+        description: 'Filed research documents and ongoing trackers, numbered as logged.',
+        chips: [{id:'reports', label:'Research & Reports'}, {id:'trackers', label:'Trackers & Audits'}],
+        items: [
+          {num:'01', cat:'Research Studies & Reports', chip:'reports', title:'Uganda Human Rights Violations and Election Violence Tracker', desc:'Documents the human rights violations and election‑related violence around Uganda’s 2021 elections, framed as state‑versus‑citizen conflict rather than citizen‑versus‑citizen.'},
+          {num:'02', cat:'Research Studies & Reports · Opinion Polls', chip:'reports', title:'Citizens’ Perceptions on the 2021 Elections', desc:'A nationwide survey of over 4,000 citizens across 14 regions and 78 districts capturing experiences before, during and after the 2021 election — the largest study of its kind in the country.'},
+          {num:'03', cat:'Research Studies & Reports', chip:'reports', title:'Uganda Governance Trends Analysis Tracker, August 2024', desc:'First in a periodic series tracking political organizing, civil liberties, the judiciary and the electoral road map since the 2021 elections, feeding a future governance information portal.'},
+          {num:'04', cat:'Research Studies & Reports', chip:'reports', title:'Uganda’s Political Transition Scenarios To 2026 and Beyond', desc:'Scenario analysis of Uganda’s political transition prospects, tracing the arc from the 1986 NRA takeover to today’s succession debates.'},
+          {num:'05', cat:'Research Studies & Reports', chip:'reports', title:'Early Warning Signs for Violence in Uganda’s 2021 Elections and Structures and Strategies for Mitigation', desc:'A joint study with the Women’s Democracy Network–Uganda on election‑violence triggers, who the perpetrators and victims were, and mitigation structures.'},
+          {num:'06', cat:'Trackers & Audits', chip:'trackers', title:'A Mapping of Actors That Are Documenting Uganda’s Electoral Rights‑Related Violations', desc:'Maps the organisations tracking illegal arrests, incommunicado detention and disappearances in the post‑2021‑election period.'},
+          {num:'07', cat:'Research Studies & Reports', chip:'reports', title:'Democracy on Trial? An Analysis of Post—Election Litigation of the 2021 General Elections in Uganda', desc:'Analyses the 150+ court petitions filed after the 2021 elections and what the pattern reveals about Uganda’s electoral justice system.'}
+        ],
+        renderItem: function(it){
+          return '<div class="register-item"><span class="file-num">FILE '+it.num+'</span><div><span class="reg-cat">'+esc(it.cat)+'</span><h4>'+esc(it.title)+'</h4><p>'+esc(it.desc)+'</p></div><a class="reg-link" href="#publications">Read &rarr;</a></div>';
+        }
+      }
+    ]
+  });
+
+  /* ---------- The Wire browser ---------- */
+  var WIRE_ITEMS = [
+    {ym:'2026-04', date:'17 Apr 2026', title:'Sovereignty Bill: 11 Parliament MPs Are Likely to Be Its First Victims'},
+    {ym:'2025-11', date:'29 Nov 2025', title:'Uganda Weekly Governance — Issue 24 (10th Nov–16th Nov 2025)'},
+    {ym:'2025-11', date:'12 Nov 2025', title:'Uganda Weekly Governance — Issue 23 (3rd Nov–9th Nov 2025)'},
+    {ym:'2025-11', date:'5 Nov 2025', title:'Uganda Weekly Governance — Issue 22 (27th Oct–2nd Nov 2025)'},
+    {ym:'2025-10', date:'31 Oct 2025', title:'Uganda Weekly Governance — Issue 21 (20th Oct–26th Oct 2025)'},
+    {ym:'2025-10', date:'21 Oct 2025', title:'Uganda Weekly Governance — Issue 20 (13th Oct–19th Oct 2025)'},
+    {ym:'2025-10', date:'21 Oct 2025', title:'Uganda Weekly Governance — Issue 19 (6th Oct–12th Oct 2025)'},
+    {ym:'2025-10', date:'12 Oct 2025', title:'Uganda Weekly Governance — Issue 18 (29th Sept–5th Oct 2025)'},
+    {ym:'2025-10', date:'6 Oct 2025', title:'Uganda Weekly Governance — Issue 17 (22nd Sept–28th Sept 2025)'},
+    {ym:'2025-10', date:'6 Oct 2025', title:'Uganda Weekly Governance — Issue 16 (15th Sept–21st Sept 2025)'},
+    {ym:'2025-10', date:'6 Oct 2025', title:'Uganda Weekly Governance — Issue 15 (8th Sept–14th Sept 2025)'},
+    {ym:'2025-09', date:'18 Sept 2025', title:'Uganda Weekly Governance — Issue 10 (27th July–3rd Aug 2025)'},
+    {ym:'2025-09', date:'17 Sept 2025', title:'Uganda Weekly Governance — Issue 14 (1st Sept–7th Sept 2025)'},
+    {ym:'2025-09', date:'17 Sept 2025', title:'Uganda Weekly Governance — Issue 13 (25th Aug–31st Aug 2025)'},
+    {ym:'2025-09', date:'17 Sept 2025', title:'Uganda Weekly Governance — Issue 12 (18th Aug–24th Aug 2025)'},
+    {ym:'2025-09', date:'17 Sept 2025', title:'Uganda Weekly Governance — Issue 11 (11th Aug–17th Aug 2025)'},
+    {ym:'2025-09', date:'17 Sept 2025', title:'Uganda Weekly Governance — Issue 9 (21st July–27th July 2025)'},
+    {ym:'2025-07', date:'27 July 2025', title:'Uganda Weekly Governance — Issue 8 (14th July–20th July 2025)'},
+    {ym:'2025-07', date:'27 July 2025', title:'Uganda Weekly Governance — Issue 7 (7th July–12th July 2025)'},
+    {ym:'2025-07', date:'27 July 2025', title:'Uganda Weekly Governance — Issue 6 (30th June–6th July 2025)'},
+    {ym:'2025-07', date:'14 July 2025', title:'Uganda Weekly Governance — Issue 5 (23rd June–29th June 2025)'},
+    {ym:'2025-07', date:'7 July 2025', title:'Uganda Weekly Governance — Issue 4 (16th June–22nd June 2025)'},
+    {ym:'2025-07', date:'4 July 2025', title:'Uganda Weekly Governance — Issue 3 (9th June–15th June 2025)'},
+    {ym:'2025-06', date:'22 June 2025', title:'Uganda Weekly Governance — Issue 2 (2 June–8 June 2025)'},
+    {ym:'2025-06', date:'2 June 2025', title:'Uganda Weekly Governance — Issue 1 (25 May–1 June 2025)'}
+  ];
+  var WIRE_MONTHS = [
+    {ym:'2026-04', label:'April 2026'},
+    {ym:'2025-11', label:'November 2025'},
+    {ym:'2025-10', label:'October 2025'},
+    {ym:'2025-09', label:'September 2025'},
+    {ym:'2025-07', label:'July 2025'},
+    {ym:'2025-06', label:'June 2025'}
+  ];
+  function wireRenderItem(it){
+    return '<div class="wire-row"><div><span class="eyebrow">'+esc(it.date)+'</span><h4>'+esc(it.title)+'</h4></div><a class="rd" href="#blog">Read &rarr;</a></div>';
+  }
+  var wireSections = [{
+    id:'all', navLabel:'All Dispatches', kicker:'The Full Wire', heading:'Every dispatch on record',
+    description:'All '+WIRE_ITEMS.length+' filings — weekly governance bulletins and analysis pieces — in publish order, newest first.',
+    chips:null, items: WIRE_ITEMS, renderItem: wireRenderItem
+  }].concat(WIRE_MONTHS.map(function(m){
+    var items = WIRE_ITEMS.filter(function(it){ return it.ym===m.ym; });
+    return {
+      id:m.ym, navLabel:m.label, kicker:m.label, heading:'Dispatches filed in '+m.label,
+      description: items.length+' filing'+(items.length===1?'':'s')+' this month.',
+      chips:null, items: items, renderItem: wireRenderItem
+    };
+  }));
+  initBrowser({ root:'#wire-browser', navLabel:'Browse by Month', pageSize:5, sections: wireSections });
 })();
 </script>
