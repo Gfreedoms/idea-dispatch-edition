@@ -703,22 +703,8 @@ footer a:hover{color:var(--red-dark);}
 .browser .exhibits{box-shadow:none;border:1px solid var(--rule);}
 .browser .register-list,.browser .study-list,.browser .wire-ticker{border-top:none;margin-top:0;}
 
-/* ---------- Contact Us ---------- */
-.contact-form{display:flex;flex-direction:column;gap:20px;}
-.form-field{display:flex;flex-direction:column;gap:6px;}
-.form-field label{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);}
-.form-field label .optional{font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink-soft);opacity:.75;}
-.form-field input,.form-field textarea{
-  border:1px solid var(--rule);background:var(--paper);padding:12px 14px;
-  font:inherit;font-size:.95rem;color:var(--ink);font-family:'Roboto',sans-serif;
-}
-.form-field input:focus-visible,.form-field textarea:focus-visible{outline:2px solid var(--focus);outline-offset:1px;}
-.form-field textarea{resize:vertical;min-height:120px;}
+/* ---------- Contact Us: shared bits also used by the Cable Desk layout below ---------- */
 .form-note{margin:0;font-size:.8rem;color:var(--ink-soft);max-width:48ch;}
-
-.contact-info{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:2px solid var(--red);}
-.contact-info-card{background:var(--paper);padding:22px 24px;}
-.contact-info-card .label{display:block;margin-bottom:8px;}
 .contact-info-value{display:block;font-family:'Roboto Slab',serif;font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;margin:0;}
 a.contact-info-value:hover{color:var(--red-dark);}
 .contact-social{display:flex;gap:10px;}
@@ -729,14 +715,72 @@ a.contact-info-value:hover{color:var(--red-dark);}
 .contact-social a:hover{border-color:var(--red);color:var(--red-dark);}
 .contact-social svg{width:17px;height:17px;fill:currentColor;}
 
-.case-copy .docket-feature{margin-bottom:0;}
-.case-copy .docket-feature .ghost-num{font-size:clamp(4.5rem,9vw,6.5rem);}
-.form-field label{display:flex;align-items:baseline;gap:8px;}
-.form-field .fnum{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red);font-size:.95em;}
+/* ---------- Contact Us: "The Cable Desk" ---------- */
+.cable-hero{position:relative;overflow:hidden;background:#1E1E1E;color:#fff;padding:64px 0 78px;}
+.cable-hero .kicker .label{color:#FFD9DA;}
+.cable-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;}
+@media (max-width:760px){.cable-hero-grid{grid-template-columns:1fr;gap:26px;}}
+.cable-headline{
+  font-family:'Roboto Slab',serif;font-weight:700;
+  font-size:clamp(3rem,8vw,6.2rem);
+  line-height:.96;letter-spacing:-.01em;
+  text-transform:uppercase;
+  margin:16px 0 20px;
+}
+.cable-headline em{font-style:normal;color:var(--red);}
+.cable-deck{color:rgba(255,255,255,.8);max-width:44ch;margin:0;}
 
-.contact-info{position:relative;}
-.contact-seal{position:absolute;top:-20px;right:22px;width:76px;height:76px;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));}
-@media (max-width:860px){.contact-seal{right:auto;left:22px;}}
+.cable-seal-mark{
+  position:relative;z-index:1;justify-self:end;
+  width:clamp(150px,20vw,260px);height:clamp(150px,20vw,260px);
+  color:var(--red);filter:drop-shadow(0 18px 34px rgba(0,0,0,.45));
+}
+.cable-seal-mark svg{width:100%;height:100%;display:block;}
+@media (max-width:760px){.cable-seal-mark{justify-self:start;width:132px;height:132px;}}
+
+.cable-routing{
+  display:flex;gap:26px;flex-wrap:wrap;
+  padding:16px 0 18px;margin-bottom:8px;
+  border-bottom:1px solid var(--rule);
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+.cable-form{max-width:740px;}
+.cable-row{
+  display:grid;grid-template-columns:34px 170px 1fr;column-gap:18px;align-items:baseline;
+  padding:22px 0;border-bottom:1px solid var(--rule);
+}
+.cable-row .fnum{font-family:'Roboto Slab',serif;font-weight:700;color:var(--red);font-size:1.05rem;}
+.cable-row label{
+  font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);
+  display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;
+}
+.cable-row label .optional{font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink-soft);opacity:.75;}
+.cable-row input,.cable-row textarea{
+  width:100%;border:none;background:transparent;
+  padding:4px 0 10px;font:inherit;color:var(--ink);
+  font-family:'Roboto Slab',serif;font-size:1.08rem;
+}
+.cable-row input:focus-visible,.cable-row textarea:focus-visible{outline:2px solid var(--focus);outline-offset:5px;}
+.cable-row--message{align-items:start;}
+.cable-row--message textarea{resize:vertical;min-height:88px;font-family:'Roboto',sans-serif;font-size:.98rem;line-height:1.5;}
+.cable-submit-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px;}
+
+@media (max-width:640px){
+  .cable-row{grid-template-columns:1fr;row-gap:8px;}
+  .cable-row .fnum{display:inline-block;margin-right:8px;}
+}
+
+.cable-stub-section{border-top:none;padding-top:0;}
+.cable-stub{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--red);border-bottom:1px solid var(--rule);}
+.cable-stub-item{padding:26px 30px;border-left:1px dashed var(--rule);}
+.cable-stub-item:first-child{border-left:none;}
+@media (max-width:760px){
+  .cable-stub{grid-template-columns:1fr;}
+  .cable-stub-item{border-left:none;border-top:1px dashed var(--rule);padding:22px 4px;}
+  .cable-stub-item:first-child{border-top:none;padding-left:0;}
+}
 
 /* ---------- About Us: sign-off ---------- */
 .sign-off{
@@ -1594,72 +1638,80 @@ a.contact-info-value:hover{color:var(--red-dark);}
 
 <div class="page" id="page-contact-us" hidden>
 
-  <section class="section" id="contact-hero" style="border-top:none;">
-    <div class="wrap">
-      <div class="kicker"><span class="dot"></span><span class="label">Get In Touch &middot; File a Dispatch</span></div>
-      <h1 style="font-weight:700;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.01em;margin:16px 0 20px;text-wrap:balance;font-family:'Roboto Slab',serif;">Contact Us</h1>
-      <p class="deck" style="max-width:62ch;">Questions, story tips, partnership inquiries &mdash; reach the IDEA team directly. We read every message personally.</p>
+  <section class="cable-hero">
+    <div class="wrap cable-hero-grid">
+      <div class="cable-hero-text">
+        <div class="kicker"><span class="dot"></span><span class="label">Get In Touch &middot; File a Dispatch</span></div>
+        <h1 class="cable-headline">File a<br>Cable<em>.</em></h1>
+        <p class="deck cable-deck">Questions, story tips, partnership inquiries &mdash; reach the IDEA desk directly. Every cable is logged and read personally.</p>
+      </div>
+      <span class="cable-seal-mark" aria-hidden="true">
+        <svg viewBox="0 0 240 240">
+          <defs><path id="idaSealTopContact" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
+          <circle cx="120" cy="120" r="118" fill="#fff"/>
+          <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+          <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
+            <textPath href="#idaSealTopContact" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
+          </text>
+          <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
+          <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
+          <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
+        </svg>
+      </span>
     </div>
   </section>
 
-  <section class="section" style="border-top:none;">
-    <div class="wrap case-grid case-grid--text-first">
-      <div class="case-copy">
-        <div class="docket-feature">
-          <span class="ghost-num">01</span>
-          <div class="tag-row">
-            <span class="tag">New Intake</span>
-            <span class="case">Dispatch Form &middot; Open</span>
-          </div>
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-field">
-              <label for="cf-name"><span class="fnum">01</span>Your Name</label>
-              <input type="text" id="cf-name" name="name" autocomplete="name" required>
-            </div>
-            <div class="form-field">
-              <label for="cf-email"><span class="fnum">02</span>Your Email</label>
-              <input type="email" id="cf-email" name="email" autocomplete="email" required>
-            </div>
-            <div class="form-field">
-              <label for="cf-subject"><span class="fnum">03</span>Subject</label>
-              <input type="text" id="cf-subject" name="subject" required>
-            </div>
-            <div class="form-field">
-              <label for="cf-message"><span class="fnum">04</span>Your Message <span class="optional">(optional)</span></label>
-              <textarea id="cf-message" name="message" rows="5"></textarea>
-            </div>
-            <div>
-              <button type="submit" class="btn btn-solid">Send via Email &rarr;</button>
-            </div>
-            <p class="form-note">Opens your email client with this message pre&#8209;filled, addressed to info@ideaug.org &mdash; nothing is sent from this page directly.</p>
-          </form>
-        </div>
+  <section class="section cable-form-section">
+    <div class="wrap">
+      <div class="cable-routing">
+        <span>TO: THE IDEA DESK, KAMPALA</span>
+        <span>PRIORITY: ROUTINE</span>
+        <span>ROUTE: DIRECT</span>
       </div>
-      <div class="contact-info">
-        <span class="dossier-seal-badge contact-seal" aria-hidden="true">
-          <svg viewBox="0 0 240 240">
-            <defs><path id="idaSealTopContact" d="M 25,120 A 95,95 0 0 1 215,120" fill="none"/></defs>
-            <circle cx="120" cy="120" r="118" fill="#fff"/>
-            <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
-            <text font-family="'Roboto Slab',serif" font-size="10" letter-spacing="2" fill="currentColor">
-              <textPath href="#idaSealTopContact" startOffset="50%" text-anchor="middle">DEMOCRACY INCUBATION HUB</textPath>
-            </text>
-            <text x="120" y="112" text-anchor="middle" font-family="'Roboto Slab',serif" font-weight="700" font-size="24" fill="currentColor">IDEA</text>
-            <text x="120" y="133" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9" letter-spacing="1" fill="currentColor">EST. &#183; KAMPALA</text>
-            <text x="120" y="172" text-anchor="middle" font-family="'Roboto Slab',serif" font-size="9.5" letter-spacing="1.1" fill="currentColor">NON-SECULAR &#183; NON-ALIGNED</text>
-          </svg>
-        </span>
-        <div class="contact-info-card">
+
+      <form id="contact-form" class="cable-form" novalidate>
+        <div class="cable-row">
+          <span class="fnum">01</span>
+          <label for="cf-name">Your Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="cable-row">
+          <span class="fnum">02</span>
+          <label for="cf-email">Your Email</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="cable-row">
+          <span class="fnum">03</span>
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" required>
+        </div>
+        <div class="cable-row cable-row--message">
+          <span class="fnum">04</span>
+          <label for="cf-message">Your Message <span class="optional">(optional)</span></label>
+          <textarea id="cf-message" name="message" rows="4"></textarea>
+        </div>
+        <div class="cable-submit-row">
+          <button type="submit" class="btn btn-solid">Send via Email &rarr;</button>
+          <p class="form-note">Opens your email client with this message pre&#8209;filled, addressed to info@ideaug.org &mdash; nothing is sent from this page directly.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section cable-stub-section">
+    <div class="wrap">
+      <div class="cable-stub">
+        <div class="cable-stub-item">
           <span class="label">Email</span>
           <a class="contact-info-value" href="mailto:info@ideaug.org">info@ideaug.org</a>
         </div>
-        <div class="contact-info-card">
+        <div class="cable-stub-item">
           <span class="label">Location</span>
-          <p class="contact-info-value" style="margin-bottom:14px;">Kampala, Uganda</p>
+          <p class="contact-info-value" style="margin-bottom:12px;">Kampala, Uganda</p>
           <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Kampala%2C+Uganda" target="_blank" rel="noopener">View on Map &#8599;</a>
         </div>
-        <div class="contact-info-card">
+        <div class="cable-stub-item">
           <span class="label">Follow</span>
           <nav class="contact-social" aria-label="Social media">
             <a href="https://x.com/IDEAUganda" target="_blank" rel="noopener" aria-label="IDEA on X (Twitter)">
